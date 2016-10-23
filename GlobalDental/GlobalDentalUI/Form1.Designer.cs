@@ -40,35 +40,34 @@
             this.closeChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.ShortcutButtonTable = new System.Windows.Forms.TableLayoutPanel();
+            this.CompositeButton = new System.Windows.Forms.Button();
+            this.ExtractionButton = new System.Windows.Forms.Button();
+            this.AmalgamButton = new System.Windows.Forms.Button();
+            this.SealantsButton = new System.Windows.Forms.Button();
+            this.ShortcutTinyTable1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ExistingOtherButton = new System.Windows.Forms.Button();
+            this.TreatmentPlanButton = new System.Windows.Forms.Button();
+            this.FluorideButton = new System.Windows.Forms.Button();
+            this.ShortcutTinyTable2 = new System.Windows.Forms.TableLayoutPanel();
+            this.MissingButton = new System.Windows.Forms.Button();
+            this.CompleteButton = new System.Windows.Forms.Button();
+            this.ProphyButton = new System.Windows.Forms.Button();
             this.ProgressNotesView = new System.Windows.Forms.TabControl();
-            this.TreatmentPlanTab = new System.Windows.Forms.TabPage();
             this.NotesTab = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.TreatmentPlanTab = new System.Windows.Forms.TabPage();
+            this.MainHorizontalSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.TopTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1.SuspendLayout();
+            this.ShortcutButtonTable.SuspendLayout();
+            this.ShortcutTinyTable1.SuspendLayout();
+            this.ShortcutTinyTable2.SuspendLayout();
             this.ProgressNotesView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MainHorizontalSplitContainer)).BeginInit();
+            this.MainHorizontalSplitContainer.Panel1.SuspendLayout();
+            this.MainHorizontalSplitContainer.Panel2.SuspendLayout();
+            this.MainHorizontalSplitContainer.SuspendLayout();
+            this.TopTableLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -77,7 +76,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1022, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -152,221 +151,290 @@
             // 
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1264, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1022, 25);
             this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Text = "MainToolStrip";
+            // 
+            // ShortcutButtonTable
+            // 
+            this.ShortcutButtonTable.AutoSize = true;
+            this.ShortcutButtonTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ShortcutButtonTable.ColumnCount = 2;
+            this.ShortcutButtonTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ShortcutButtonTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ShortcutButtonTable.Controls.Add(this.ProphyButton, 1, 3);
+            this.ShortcutButtonTable.Controls.Add(this.ShortcutTinyTable2, 1, 0);
+            this.ShortcutButtonTable.Controls.Add(this.FluorideButton, 0, 3);
+            this.ShortcutButtonTable.Controls.Add(this.ShortcutTinyTable1, 0, 0);
+            this.ShortcutButtonTable.Controls.Add(this.SealantsButton, 1, 2);
+            this.ShortcutButtonTable.Controls.Add(this.AmalgamButton, 0, 1);
+            this.ShortcutButtonTable.Controls.Add(this.ExtractionButton, 0, 2);
+            this.ShortcutButtonTable.Controls.Add(this.CompositeButton, 1, 1);
+            this.ShortcutButtonTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ShortcutButtonTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
+            this.ShortcutButtonTable.Location = new System.Drawing.Point(825, 3);
+            this.ShortcutButtonTable.Name = "ShortcutButtonTable";
+            this.ShortcutButtonTable.RowCount = 8;
+            this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.ShortcutButtonTable.Size = new System.Drawing.Size(194, 334);
+            this.ShortcutButtonTable.TabIndex = 3;
+            // 
+            // CompositeButton
+            // 
+            this.CompositeButton.AutoSize = true;
+            this.CompositeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CompositeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CompositeButton.Location = new System.Drawing.Point(100, 44);
+            this.CompositeButton.Name = "CompositeButton";
+            this.CompositeButton.Size = new System.Drawing.Size(91, 35);
+            this.CompositeButton.TabIndex = 3;
+            this.CompositeButton.Text = "Composite";
+            this.CompositeButton.UseVisualStyleBackColor = true;
+            // 
+            // ExtractionButton
+            // 
+            this.ExtractionButton.AutoSize = true;
+            this.ExtractionButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ExtractionButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ExtractionButton.Location = new System.Drawing.Point(3, 85);
+            this.ExtractionButton.Name = "ExtractionButton";
+            this.ExtractionButton.Size = new System.Drawing.Size(91, 35);
+            this.ExtractionButton.TabIndex = 4;
+            this.ExtractionButton.Text = "exo";
+            this.ExtractionButton.UseVisualStyleBackColor = true;
+            // 
+            // AmalgamButton
+            // 
+            this.AmalgamButton.AutoSize = true;
+            this.AmalgamButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AmalgamButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AmalgamButton.Location = new System.Drawing.Point(3, 44);
+            this.AmalgamButton.Name = "AmalgamButton";
+            this.AmalgamButton.Size = new System.Drawing.Size(91, 35);
+            this.AmalgamButton.TabIndex = 2;
+            this.AmalgamButton.Text = "Amalgam";
+            this.AmalgamButton.UseVisualStyleBackColor = true;
+            // 
+            // SealantsButton
+            // 
+            this.SealantsButton.AutoSize = true;
+            this.SealantsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SealantsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SealantsButton.Location = new System.Drawing.Point(100, 85);
+            this.SealantsButton.Name = "SealantsButton";
+            this.SealantsButton.Size = new System.Drawing.Size(91, 35);
+            this.SealantsButton.TabIndex = 5;
+            this.SealantsButton.Text = "Sealants";
+            this.SealantsButton.UseVisualStyleBackColor = true;
+            // 
+            // ShortcutTinyTable1
+            // 
+            this.ShortcutTinyTable1.AutoSize = true;
+            this.ShortcutTinyTable1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ShortcutTinyTable1.ColumnCount = 2;
+            this.ShortcutTinyTable1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ShortcutTinyTable1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ShortcutTinyTable1.Controls.Add(this.TreatmentPlanButton, 0, 0);
+            this.ShortcutTinyTable1.Controls.Add(this.ExistingOtherButton, 1, 0);
+            this.ShortcutTinyTable1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ShortcutTinyTable1.Location = new System.Drawing.Point(0, 0);
+            this.ShortcutTinyTable1.Margin = new System.Windows.Forms.Padding(0);
+            this.ShortcutTinyTable1.Name = "ShortcutTinyTable1";
+            this.ShortcutTinyTable1.RowCount = 1;
+            this.ShortcutTinyTable1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ShortcutTinyTable1.Size = new System.Drawing.Size(97, 41);
+            this.ShortcutTinyTable1.TabIndex = 0;
+            // 
+            // ExistingOtherButton
+            // 
+            this.ExistingOtherButton.AutoSize = true;
+            this.ExistingOtherButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ExistingOtherButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ExistingOtherButton.Location = new System.Drawing.Point(51, 3);
+            this.ExistingOtherButton.Name = "ExistingOtherButton";
+            this.ExistingOtherButton.Size = new System.Drawing.Size(43, 35);
+            this.ExistingOtherButton.TabIndex = 1;
+            this.ExistingOtherButton.Text = "EO";
+            this.ExistingOtherButton.UseVisualStyleBackColor = true;
+            // 
+            // TreatmentPlanButton
+            // 
+            this.TreatmentPlanButton.AutoSize = true;
+            this.TreatmentPlanButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.TreatmentPlanButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TreatmentPlanButton.Location = new System.Drawing.Point(3, 3);
+            this.TreatmentPlanButton.Name = "TreatmentPlanButton";
+            this.TreatmentPlanButton.Size = new System.Drawing.Size(42, 35);
+            this.TreatmentPlanButton.TabIndex = 0;
+            this.TreatmentPlanButton.Text = "TX";
+            this.TreatmentPlanButton.UseVisualStyleBackColor = true;
+            // 
+            // FluorideButton
+            // 
+            this.FluorideButton.AutoSize = true;
+            this.FluorideButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FluorideButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FluorideButton.Location = new System.Drawing.Point(3, 126);
+            this.FluorideButton.Name = "FluorideButton";
+            this.FluorideButton.Size = new System.Drawing.Size(91, 35);
+            this.FluorideButton.TabIndex = 6;
+            this.FluorideButton.Text = "FL";
+            this.FluorideButton.UseVisualStyleBackColor = true;
+            // 
+            // ShortcutTinyTable2
+            // 
+            this.ShortcutTinyTable2.AutoSize = true;
+            this.ShortcutTinyTable2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ShortcutTinyTable2.ColumnCount = 2;
+            this.ShortcutTinyTable2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ShortcutTinyTable2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ShortcutTinyTable2.Controls.Add(this.CompleteButton, 0, 0);
+            this.ShortcutTinyTable2.Controls.Add(this.MissingButton, 1, 0);
+            this.ShortcutTinyTable2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ShortcutTinyTable2.Location = new System.Drawing.Point(97, 0);
+            this.ShortcutTinyTable2.Margin = new System.Windows.Forms.Padding(0);
+            this.ShortcutTinyTable2.Name = "ShortcutTinyTable2";
+            this.ShortcutTinyTable2.RowCount = 1;
+            this.ShortcutTinyTable2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ShortcutTinyTable2.Size = new System.Drawing.Size(97, 41);
+            this.ShortcutTinyTable2.TabIndex = 1;
+            // 
+            // MissingButton
+            // 
+            this.MissingButton.AutoSize = true;
+            this.MissingButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MissingButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MissingButton.Location = new System.Drawing.Point(51, 3);
+            this.MissingButton.Name = "MissingButton";
+            this.MissingButton.Size = new System.Drawing.Size(43, 35);
+            this.MissingButton.TabIndex = 3;
+            this.MissingButton.Text = "M";
+            this.MissingButton.UseVisualStyleBackColor = true;
+            // 
+            // CompleteButton
+            // 
+            this.CompleteButton.AutoSize = true;
+            this.CompleteButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CompleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CompleteButton.Location = new System.Drawing.Point(3, 3);
+            this.CompleteButton.Name = "CompleteButton";
+            this.CompleteButton.Size = new System.Drawing.Size(42, 35);
+            this.CompleteButton.TabIndex = 2;
+            this.CompleteButton.Text = "C";
+            this.CompleteButton.UseVisualStyleBackColor = true;
+            // 
+            // ProphyButton
+            // 
+            this.ProphyButton.AutoSize = true;
+            this.ProphyButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ProphyButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProphyButton.Location = new System.Drawing.Point(100, 126);
+            this.ProphyButton.Name = "ProphyButton";
+            this.ProphyButton.Size = new System.Drawing.Size(91, 35);
+            this.ProphyButton.TabIndex = 7;
+            this.ProphyButton.Text = "Pro";
+            this.ProphyButton.UseVisualStyleBackColor = true;
             // 
             // ProgressNotesView
             // 
-            this.ProgressNotesView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.ProgressNotesView.Controls.Add(this.TreatmentPlanTab);
             this.ProgressNotesView.Controls.Add(this.NotesTab);
-            this.ProgressNotesView.Location = new System.Drawing.Point(8, 501);
+            this.ProgressNotesView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProgressNotesView.Location = new System.Drawing.Point(0, 0);
+            this.ProgressNotesView.MinimumSize = new System.Drawing.Size(0, 125);
             this.ProgressNotesView.Name = "ProgressNotesView";
             this.ProgressNotesView.SelectedIndex = 0;
-            this.ProgressNotesView.Size = new System.Drawing.Size(1240, 168);
-            this.ProgressNotesView.TabIndex = 2;
-            // 
-            // TreatmentPlanTab
-            // 
-            this.TreatmentPlanTab.Location = new System.Drawing.Point(4, 22);
-            this.TreatmentPlanTab.Name = "TreatmentPlanTab";
-            this.TreatmentPlanTab.Padding = new System.Windows.Forms.Padding(3);
-            this.TreatmentPlanTab.Size = new System.Drawing.Size(1232, 142);
-            this.TreatmentPlanTab.TabIndex = 0;
-            this.TreatmentPlanTab.Text = "Treatment Plan";
-            this.TreatmentPlanTab.UseVisualStyleBackColor = true;
+            this.ProgressNotesView.Size = new System.Drawing.Size(1022, 226);
+            this.ProgressNotesView.TabIndex = 4;
             // 
             // NotesTab
             // 
             this.NotesTab.Location = new System.Drawing.Point(4, 22);
             this.NotesTab.Name = "NotesTab";
             this.NotesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.NotesTab.Size = new System.Drawing.Size(885, 142);
+            this.NotesTab.Size = new System.Drawing.Size(1008, 119);
             this.NotesTab.TabIndex = 1;
             this.NotesTab.Text = "Notes";
             this.NotesTab.UseVisualStyleBackColor = true;
             // 
-            // splitContainer1
+            // TreatmentPlanTab
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(994, 4);
-            this.splitContainer1.Name = "splitContainer1";
+            this.TreatmentPlanTab.Location = new System.Drawing.Point(4, 22);
+            this.TreatmentPlanTab.Name = "TreatmentPlanTab";
+            this.TreatmentPlanTab.Padding = new System.Windows.Forms.Padding(3);
+            this.TreatmentPlanTab.Size = new System.Drawing.Size(1014, 200);
+            this.TreatmentPlanTab.TabIndex = 0;
+            this.TreatmentPlanTab.Text = "Treatment Plan";
+            this.TreatmentPlanTab.UseVisualStyleBackColor = true;
             // 
-            // splitContainer1.Panel1
+            // MainHorizontalSplitContainer
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.button9);
-            this.splitContainer1.Panel1.Controls.Add(this.button7);
-            this.splitContainer1.Panel1.Controls.Add(this.button5);
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.MainHorizontalSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainHorizontalSplitContainer.Location = new System.Drawing.Point(0, 49);
+            this.MainHorizontalSplitContainer.Name = "MainHorizontalSplitContainer";
+            this.MainHorizontalSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer1.Panel2
+            // MainHorizontalSplitContainer.Panel1
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.button10);
-            this.splitContainer1.Panel2.Controls.Add(this.button8);
-            this.splitContainer1.Panel2.Controls.Add(this.button6);
-            this.splitContainer1.Panel2.Controls.Add(this.button3);
-            this.splitContainer1.Panel2.Controls.Add(this.button4);
-            this.splitContainer1.Size = new System.Drawing.Size(242, 418);
-            this.splitContainer1.SplitterDistance = 116;
-            this.splitContainer1.TabIndex = 2;
+            this.MainHorizontalSplitContainer.Panel1.Controls.Add(this.TopTableLayout);
             // 
-            // button4
+            // MainHorizontalSplitContainer.Panel2
             // 
-            this.button4.Location = new System.Drawing.Point(3, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(52, 28);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "C";
-            this.button4.UseVisualStyleBackColor = true;
+            this.MainHorizontalSplitContainer.Panel2.Controls.Add(this.ProgressNotesView);
+            this.MainHorizontalSplitContainer.Size = new System.Drawing.Size(1022, 570);
+            this.MainHorizontalSplitContainer.SplitterDistance = 340;
+            this.MainHorizontalSplitContainer.TabIndex = 5;
             // 
-            // button3
+            // TopTableLayout
             // 
-            this.button3.Location = new System.Drawing.Point(61, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(53, 28);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "M";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(3, 37);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(111, 31);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Composite";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(3, 74);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(111, 31);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "Sealants";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(3, 111);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(111, 31);
-            this.button10.TabIndex = 7;
-            this.button10.Text = "Pro";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(52, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "TX";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(61, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 28);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "EO";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(3, 37);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(111, 31);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Amalgam";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(3, 74);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(111, 31);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "exo";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(3, 111);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(111, 31);
-            this.button9.TabIndex = 6;
-            this.button9.Text = "FL";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.splitContainer3);
-            this.panel1.Controls.Add(this.splitContainer2);
-            this.panel1.Controls.Add(this.splitter1);
-            this.panel1.Controls.Add(this.splitContainer1);
-            this.panel1.Location = new System.Drawing.Point(12, 52);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1240, 425);
-            this.panel1.TabIndex = 3;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(489, 425);
-            this.splitter1.TabIndex = 3;
-            this.splitter1.TabStop = false;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Location = new System.Drawing.Point(4, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainer2.Size = new System.Drawing.Size(485, 425);
-            this.splitContainer2.SplitterDistance = 210;
-            this.splitContainer2.TabIndex = 4;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Location = new System.Drawing.Point(495, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainer3.Size = new System.Drawing.Size(493, 425);
-            this.splitContainer3.SplitterDistance = 210;
-            this.splitContainer3.TabIndex = 5;
+            this.TopTableLayout.ColumnCount = 2;
+            this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.TopTableLayout.Controls.Add(this.ShortcutButtonTable, 1, 0);
+            this.TopTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TopTableLayout.Location = new System.Drawing.Point(0, 0);
+            this.TopTableLayout.Name = "TopTableLayout";
+            this.TopTableLayout.RowCount = 1;
+            this.TopTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TopTableLayout.Size = new System.Drawing.Size(1022, 340);
+            this.TopTableLayout.TabIndex = 0;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.ProgressNotesView);
+            this.ClientSize = new System.Drawing.Size(1022, 619);
+            this.Controls.Add(this.MainHorizontalSplitContainer);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Global Dental © 2016 Random Davis";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.ShortcutButtonTable.ResumeLayout(false);
+            this.ShortcutButtonTable.PerformLayout();
+            this.ShortcutTinyTable1.ResumeLayout(false);
+            this.ShortcutTinyTable1.PerformLayout();
+            this.ShortcutTinyTable2.ResumeLayout(false);
+            this.ShortcutTinyTable2.PerformLayout();
             this.ProgressNotesView.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
+            this.MainHorizontalSplitContainer.Panel1.ResumeLayout(false);
+            this.MainHorizontalSplitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.MainHorizontalSplitContainer)).EndInit();
+            this.MainHorizontalSplitContainer.ResumeLayout(false);
+            this.TopTableLayout.ResumeLayout(false);
+            this.TopTableLayout.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,21 +456,21 @@
         private System.Windows.Forms.TabControl ProgressNotesView;
         private System.Windows.Forms.TabPage TreatmentPlanTab;
         private System.Windows.Forms.TabPage NotesTab;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.TableLayoutPanel ShortcutButtonTable;
+        private System.Windows.Forms.Button ProphyButton;
+        private System.Windows.Forms.TableLayoutPanel ShortcutTinyTable2;
+        private System.Windows.Forms.Button CompleteButton;
+        private System.Windows.Forms.Button MissingButton;
+        private System.Windows.Forms.Button FluorideButton;
+        private System.Windows.Forms.TableLayoutPanel ShortcutTinyTable1;
+        private System.Windows.Forms.Button TreatmentPlanButton;
+        private System.Windows.Forms.Button ExistingOtherButton;
+        private System.Windows.Forms.Button SealantsButton;
+        private System.Windows.Forms.Button AmalgamButton;
+        private System.Windows.Forms.Button ExtractionButton;
+        private System.Windows.Forms.Button CompositeButton;
+        private System.Windows.Forms.SplitContainer MainHorizontalSplitContainer;
+        private System.Windows.Forms.TableLayoutPanel TopTableLayout;
     }
 }
 
