@@ -84,6 +84,12 @@
     <Compile Include="SurfaceSelection.Designer.cs">
       <DependentUpon>SurfaceSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="SyncForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SyncForm.Designer.cs">
+      <DependentUpon>SyncForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CreateEditViewPatient.resx">
       <DependentUpon>CreateEditViewPatient.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SurfaceSelection.resx">
       <DependentUpon>SurfaceSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SyncForm.resx">
+      <DependentUpon>SyncForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
