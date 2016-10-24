@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectPatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +39,7 @@
             this.syncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.ShortcutToolStrip = new System.Windows.Forms.ToolStrip();
             this.ShortcutButtonTable = new System.Windows.Forms.TableLayoutPanel();
             this.ProphyButton = new System.Windows.Forms.Button();
             this.ShortcutTinyTable2 = new System.Windows.Forms.TableLayoutPanel();
@@ -175,7 +175,7 @@
             this.label62 = new System.Windows.Forms.Label();
             this.tableLayoutPanel68 = new System.Windows.Forms.TableLayoutPanel();
             this.label63 = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
+            this.MainMenuStrip.SuspendLayout();
             this.ShortcutButtonTable.SuspendLayout();
             this.ShortcutTinyTable2.SuspendLayout();
             this.ShortcutTinyTable1.SuspendLayout();
@@ -247,15 +247,15 @@
             this.tableLayoutPanel68.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // MainMenuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(4, 4);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1000, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.MainMenuStrip.Location = new System.Drawing.Point(4, 4);
+            this.MainMenuStrip.Name = "MainMenuStrip";
+            this.MainMenuStrip.Size = new System.Drawing.Size(1000, 24);
+            this.MainMenuStrip.TabIndex = 0;
+            this.MainMenuStrip.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -324,13 +324,13 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // toolStrip1
+            // ShortcutToolStrip
             // 
-            this.toolStrip1.Location = new System.Drawing.Point(4, 28);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1000, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "MainToolStrip";
+            this.ShortcutToolStrip.Location = new System.Drawing.Point(4, 28);
+            this.ShortcutToolStrip.Name = "ShortcutToolStrip";
+            this.ShortcutToolStrip.Size = new System.Drawing.Size(1000, 25);
+            this.ShortcutToolStrip.TabIndex = 1;
+            this.ShortcutToolStrip.Text = "MainToolStrip";
             // 
             // ShortcutButtonTable
             // 
@@ -2128,17 +2128,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.MainHorizontalSplitContainer);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.ShortcutToolStrip);
+            this.Controls.Add(this.MainMenuStrip);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.MainMenuStrip;
             this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "MainWindow";
             this.Padding = new System.Windows.Forms.Padding(4);
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Global Dental © 2016 Random Davis";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.MainMenuStrip.ResumeLayout(false);
+            this.MainMenuStrip.PerformLayout();
             this.ShortcutButtonTable.ResumeLayout(false);
             this.ShortcutButtonTable.PerformLayout();
             this.ShortcutTinyTable2.ResumeLayout(false);
@@ -2271,7 +2272,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip MainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPatientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectPatientToolStripMenuItem;
@@ -2281,7 +2282,7 @@
         private System.Windows.Forms.ToolStripMenuItem syncToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeChartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip ShortcutToolStrip;
         private System.Windows.Forms.TabControl ProgressNotesView;
         private System.Windows.Forms.TabPage TreatmentPlanTab;
         private System.Windows.Forms.TabPage NotesTab;

@@ -29,26 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientSearch));
-            this.PatientSearchResults = new System.Windows.Forms.ListView();
             this.label2 = new System.Windows.Forms.Label();
             this.PatientNameTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.PatientIDTextBox = new System.Windows.Forms.TextBox();
-            this.SearchButton = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DOBColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PatientIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // PatientSearchResults
-            // 
-            this.PatientSearchResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PatientSearchResults.Location = new System.Drawing.Point(13, 82);
-            this.PatientSearchResults.Name = "PatientSearchResults";
-            this.PatientSearchResults.Size = new System.Drawing.Size(459, 367);
-            this.PatientSearchResults.TabIndex = 0;
-            this.PatientSearchResults.UseCompatibleStateImageBehavior = false;
             // 
             // label2
             // 
@@ -70,17 +69,25 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.SearchButton);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.PatientIDTextBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.PatientNameTextBox);
-            this.panel1.Location = new System.Drawing.Point(13, 13);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(459, 63);
+            this.panel1.Size = new System.Drawing.Size(484, 80);
             this.panel1.TabIndex = 4;
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Location = new System.Drawing.Point(362, 23);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchButton.TabIndex = 6;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -98,22 +105,73 @@
             this.PatientIDTextBox.Size = new System.Drawing.Size(174, 20);
             this.PatientIDTextBox.TabIndex = 4;
             // 
-            // SearchButton
+            // splitContainer1
             // 
-            this.SearchButton.Location = new System.Drawing.Point(363, 21);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(75, 23);
-            this.SearchButton.TabIndex = 6;
-            this.SearchButton.Text = "Search";
-            this.SearchButton.UseVisualStyleBackColor = true;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.panel1);
+            this.splitContainer1.Panel1MinSize = 80;
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Size = new System.Drawing.Size(484, 461);
+            this.splitContainer1.SplitterDistance = 80;
+            this.splitContainer1.TabIndex = 6;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LastNameColumn,
+            this.FirstNameColumn,
+            this.DOBColumn,
+            this.PatientIDColumn});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(484, 377);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // LastNameColumn
+            // 
+            this.LastNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.LastNameColumn.HeaderText = "Last Name";
+            this.LastNameColumn.Name = "LastNameColumn";
+            this.LastNameColumn.ReadOnly = true;
+            // 
+            // FirstNameColumn
+            // 
+            this.FirstNameColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FirstNameColumn.HeaderText = "First Name";
+            this.FirstNameColumn.Name = "FirstNameColumn";
+            this.FirstNameColumn.ReadOnly = true;
+            // 
+            // DOBColumn
+            // 
+            this.DOBColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DOBColumn.HeaderText = "DOB";
+            this.DOBColumn.Name = "DOBColumn";
+            this.DOBColumn.ReadOnly = true;
+            // 
+            // PatientIDColumn
+            // 
+            this.PatientIDColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PatientIDColumn.HeaderText = "ID";
+            this.PatientIDColumn.Name = "PatientIDColumn";
+            this.PatientIDColumn.ReadOnly = true;
             // 
             // PatientSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.PatientSearchResults);
+            this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(500, 500);
@@ -123,18 +181,27 @@
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView PatientSearchResults;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox PatientNameTextBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox PatientIDTextBox;
         private System.Windows.Forms.Button SearchButton;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DOBColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PatientIDColumn;
     }
 }
