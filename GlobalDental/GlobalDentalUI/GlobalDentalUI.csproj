@@ -64,6 +64,7 @@
     <Compile Include="LogInForm.Designer.cs">
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Patient.cs" />
     <Compile Include="PatientSearch.cs">
       <SubType>Form</SubType>
     </Compile>
