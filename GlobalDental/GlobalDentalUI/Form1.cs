@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GlobalDentalUI.Controller;
 
 namespace GlobalDentalUI
 {
@@ -15,11 +16,16 @@ namespace GlobalDentalUI
         public MainWindow()
         {
             InitializeComponent();
+            DOP = new DentalOutreachProgram();
+            DOP.AddPatient(DateTime.Now, "Johnny", "Appleseed", "Oregon", "USA", "John is kill\no", Model.Patient.Gender.Male);
+            DOP.AddPatient(DateTime.Now, "Thompy", "Tearres", "Jefferton", "USA", "Tommy Boy", Model.Patient.Gender.Male);
+            SelectedPatient = null;
         }
 
         private void newPatientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var CreatePatientDialog = new CreateEditViewPatient(DOP);
+            CreatePatientDialog.Show();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,5 +77,20 @@ namespace GlobalDentalUI
         {
 
         }
+
+        private DentalOutreachProgram DOP { get; set; }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void selectPatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var SelectPatientDialog = new PatientSearch(DOP);
+            SelectPatientDialog.Show();
+        }
+
+        private GlobalDentalUI.Model.Patient SelectedPatient { get; set; }
     }
 }
