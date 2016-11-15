@@ -38,6 +38,7 @@ namespace GlobalDentalUI.Model
         public string Country { get; set; }
         public Gender PatientGender { get; set; }
         public string PatientNotes { get; set; }
+        public string TreatmentNotes { get; set; }
         public DateTime CreationDate { get; private set; }
         public List<Treatment> TreatmentsList { get; }
         public List<Tooth> Teeth { get; private set; }

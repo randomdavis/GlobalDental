@@ -20,11 +20,20 @@ namespace GlobalDentalUI.Model
 
         public class SurfacesList
         {
-            public ToothSurface Buccal { get; }
-            public ToothSurface Distal { get; }
-            public ToothSurface Lingual { get; }
-            public ToothSurface Mesial { get; }
-            public ToothSurface Occlusal { get; }
+            public SurfacesList()
+            {
+                Buccal = new ToothSurface();
+                Distal = new ToothSurface();
+                Lingual = new ToothSurface();
+                Mesial = new ToothSurface();
+                Occlusal = new ToothSurface();
+            }
+
+            public ToothSurface Buccal { get; private set; }
+            public ToothSurface Distal { get; private set; }
+            public ToothSurface Lingual { get; private set; }
+            public ToothSurface Mesial { get; private set; }
+            public ToothSurface Occlusal { get; private set; }
         }
 
         public class ToothNumber

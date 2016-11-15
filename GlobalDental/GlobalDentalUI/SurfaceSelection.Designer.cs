@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SurfaceSelection));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.DistalCheckBox = new System.Windows.Forms.CheckBox();
+            this.BuccalCheckBox = new System.Windows.Forms.CheckBox();
+            this.OcclusalCheckBox = new System.Windows.Forms.CheckBox();
+            this.LingualCheckBox = new System.Windows.Forms.CheckBox();
             this.OKButton = new System.Windows.Forms.Button();
             this.MesialCheckBox = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,10 +44,10 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.checkBox4, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox3, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.DistalCheckBox, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.BuccalCheckBox, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.OcclusalCheckBox, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.LingualCheckBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.OKButton, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.MesialCheckBox, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -60,6 +60,54 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(172, 149);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // DistalCheckBox
+            // 
+            this.DistalCheckBox.AutoSize = true;
+            this.DistalCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DistalCheckBox.Location = new System.Drawing.Point(0, 98);
+            this.DistalCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.DistalCheckBox.Name = "DistalCheckBox";
+            this.DistalCheckBox.Size = new System.Drawing.Size(86, 51);
+            this.DistalCheckBox.TabIndex = 5;
+            this.DistalCheckBox.Text = "Distal";
+            this.DistalCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // BuccalCheckBox
+            // 
+            this.BuccalCheckBox.AutoSize = true;
+            this.BuccalCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BuccalCheckBox.Location = new System.Drawing.Point(86, 49);
+            this.BuccalCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.BuccalCheckBox.Name = "BuccalCheckBox";
+            this.BuccalCheckBox.Size = new System.Drawing.Size(86, 49);
+            this.BuccalCheckBox.TabIndex = 4;
+            this.BuccalCheckBox.Text = "Buccal";
+            this.BuccalCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // OcclusalCheckBox
+            // 
+            this.OcclusalCheckBox.AutoSize = true;
+            this.OcclusalCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OcclusalCheckBox.Location = new System.Drawing.Point(0, 49);
+            this.OcclusalCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.OcclusalCheckBox.Name = "OcclusalCheckBox";
+            this.OcclusalCheckBox.Size = new System.Drawing.Size(86, 49);
+            this.OcclusalCheckBox.TabIndex = 3;
+            this.OcclusalCheckBox.Text = "Occlusal";
+            this.OcclusalCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // LingualCheckBox
+            // 
+            this.LingualCheckBox.AutoSize = true;
+            this.LingualCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LingualCheckBox.Location = new System.Drawing.Point(86, 0);
+            this.LingualCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.LingualCheckBox.Name = "LingualCheckBox";
+            this.LingualCheckBox.Size = new System.Drawing.Size(86, 49);
+            this.LingualCheckBox.TabIndex = 2;
+            this.LingualCheckBox.Text = "Lingual";
+            this.LingualCheckBox.UseVisualStyleBackColor = true;
+            // 
             // OKButton
             // 
             this.OKButton.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -69,6 +117,7 @@
             this.OKButton.TabIndex = 0;
             this.OKButton.Text = "Select";
             this.OKButton.UseVisualStyleBackColor = true;
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // MesialCheckBox
             // 
@@ -81,54 +130,6 @@
             this.MesialCheckBox.TabIndex = 1;
             this.MesialCheckBox.Text = "Mesial";
             this.MesialCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox1.Location = new System.Drawing.Point(86, 0);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(86, 49);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Lingual";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox2.Location = new System.Drawing.Point(0, 49);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(86, 49);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "Occlusal";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox3.Location = new System.Drawing.Point(86, 49);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(86, 49);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Buccal";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox4.Location = new System.Drawing.Point(0, 98);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(86, 51);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Distal";
-            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // SurfaceSelection
             // 
@@ -157,10 +158,10 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox DistalCheckBox;
+        private System.Windows.Forms.CheckBox BuccalCheckBox;
+        private System.Windows.Forms.CheckBox OcclusalCheckBox;
+        private System.Windows.Forms.CheckBox LingualCheckBox;
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.CheckBox MesialCheckBox;
     }

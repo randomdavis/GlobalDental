@@ -20,13 +20,17 @@ namespace GlobalDentalUI.Model
                 }
                 else
                 {
-                    this.Buccal = this.Distal = Distal = this.Lingual = Lingual = this.Mesial = this.Occlusal = true;
+                    this.Buccal = true;
+                    this.Distal = true;
+                    this.Lingual = true;
+                    this.Mesial = true;
+                    this.Occlusal = true;
                 }
             }
 
             public bool WholeTooth()
             {
-                return Buccal == Distal == Distal == Lingual == Lingual == Mesial == Occlusal == true;
+                return Buccal == true && Distal == true && Lingual ==  true && Mesial == true && Occlusal == true;
             }
 
             public bool Buccal { get; private set; }
@@ -94,7 +98,7 @@ namespace GlobalDentalUI.Model
             return returnString;
         }
 
-        public string Code()
+        public string Code(bool specifictooth = true)
         {
             string treatmentCode = "";
 
@@ -123,35 +127,42 @@ namespace GlobalDentalUI.Model
                     break;
             }
 
-            treatmentCode += TreatmentTooth.Number.USAToothNumber;
+            if(specifictooth == true)
+            {
+                treatmentCode += TreatmentTooth.Number.USAToothNumber;
+            }
 
             return treatmentCode;
         }
 
         public void updateSurfaces()
         {
-            var isWholeTooth = Surfaces.WholeTooth();
+            if(this.TreatmentTooth != null)
+            {
+                var isWholeTooth = Surfaces.WholeTooth();
 
-            if (Surfaces.Buccal == true || isWholeTooth == true)
-            {
-                TreatmentTooth.Surfaces.Buccal.Status = Status;
+                if (Surfaces.Buccal == true || isWholeTooth == true)
+                {
+                    TreatmentTooth.Surfaces.Buccal.Status = Status;
+                }
+                if (Surfaces.Distal == true || isWholeTooth == true)
+                {
+                    TreatmentTooth.Surfaces.Distal.Status = Status;
+                }
+                if (Surfaces.Lingual == true || isWholeTooth == true)
+                {
+                    TreatmentTooth.Surfaces.Lingual.Status = Status;
+                }
+                if (Surfaces.Mesial == true || isWholeTooth == true)
+                {
+                    TreatmentTooth.Surfaces.Mesial.Status = Status;
+                }
+                if (Surfaces.Occlusal == true || isWholeTooth == true)
+                {
+                    TreatmentTooth.Surfaces.Occlusal.Status = Status;
+                }
             }
-            if (Surfaces.Distal == true || isWholeTooth == true)
-            {
-                TreatmentTooth.Surfaces.Distal.Status = Status;
-            }
-            if (Surfaces.Lingual == true || isWholeTooth == true)
-            {
-                TreatmentTooth.Surfaces.Lingual.Status = Status;
-            }
-            if (Surfaces.Mesial == true || isWholeTooth == true)
-            {
-                TreatmentTooth.Surfaces.Mesial.Status = Status;
-            }
-            if (Surfaces.Occlusal == true || isWholeTooth == true)
-            {
-                TreatmentTooth.Surfaces.Occlusal.Status = Status;
-            }
+            
         }
 
         public Treatment(TreatmentType Type, TreatmentSurfaces TreatmentSurfaces, TreatmentStatus Status, Tooth TreatmentTooth = null)
@@ -161,39 +172,37 @@ namespace GlobalDentalUI.Model
 
             if (Type == TreatmentType.Prophylaxis || Type == TreatmentType.Fluoride)
             {
-                WholeMouth = true;
                 this.TreatmentTooth = null;
+                this.Status = Status;
             }
             else
-            {
-                if (TreatmentTooth == null)
+            {  
+                this.TreatmentTooth = TreatmentTooth;
+
+                if (Type == TreatmentType.Extraction)
                 {
-                    throw new ArgumentNullException("No tooth was specified for a treatment of type " + Type.ToString());
+                    Surfaces = new TreatmentSurfaces(WholeTooth: true);
+                    this.Status = Status;
                 }
                 else
                 {
-                    this.TreatmentTooth = TreatmentTooth;
+                    Surfaces = TreatmentSurfaces;
 
-                    if (Type == TreatmentType.Extraction)
+                    if ((Type == TreatmentType.Prophylaxis || Type == TreatmentType.Fluoride) && Status == TreatmentStatus.Existing)
                     {
-                        Surfaces = new TreatmentSurfaces(WholeTooth: true);
+                        this.Status = TreatmentStatus.Completed;
                     }
                     else
                     {
-                        Surfaces = TreatmentSurfaces;
-
-                        if ((Type == TreatmentType.Prophylaxis || Type == TreatmentType.Fluoride) && Status == TreatmentStatus.Existing)
-                        {
-                            this.Status = TreatmentStatus.Completed;
-                        }
-                        else
-                        {
-                            this.Status = Status;
-                        }
+                        this.Status = Status;
                     }
-
+                }
+                if(this.TreatmentTooth != null)
+                {
                     updateSurfaces();
                 }
+                
+                
             }
         }
 
@@ -207,6 +216,5 @@ namespace GlobalDentalUI.Model
         public TreatmentSurfaces Surfaces { get; private set; }
         public TreatmentStatus Status { get; set; }
         public Tooth TreatmentTooth { get; private set; }
-        public bool WholeMouth { get; private set; }
     }
 }

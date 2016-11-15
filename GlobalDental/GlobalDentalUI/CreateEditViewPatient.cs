@@ -26,7 +26,7 @@ namespace GlobalDentalUI
             this.MainForm = MainForm;
         }
 
-        public CreateEditViewPatient(DentalOutreachProgram DOP, int ID)
+        public CreateEditViewPatient(DentalOutreachProgram DOP, MainWindow MainForm, int ID)
         {
             InitializeComponent();
 
@@ -55,6 +55,7 @@ namespace GlobalDentalUI
                 PatientID = null;
             }
 
+            this.MainForm = MainForm;
         }
 
         private void label1_Click(object sender, EventArgs e)
