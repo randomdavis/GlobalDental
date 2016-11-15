@@ -12,11 +12,12 @@ namespace GlobalDentalUI
 {
     public partial class PatientSearch : Form
     {
-        public PatientSearch(GlobalDentalUI.Controller.DentalOutreachProgram DOP)
+        public PatientSearch(GlobalDentalUI.Controller.DentalOutreachProgram DOP, MainWindow MainForm)
         {
             InitializeComponent();
 
             this.DOP = DOP;
+            this.MainForm = MainForm;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -28,7 +29,6 @@ namespace GlobalDentalUI
         {
             if (SearchTextBox.Text.Length > 0)
             {
-                //SearchButton.Enabled = true;
                 PatientList = new List<GlobalDentalUI.Model.Patient>();
 
                 var searchText = SearchTextBox.Text;
@@ -48,11 +48,7 @@ namespace GlobalDentalUI
 
                     var foundPatient = DOP.GetPatient(PatientID);
 
-                    if (foundPatient == null)
-                    {
-                        return;
-                    }
-                    else
+                    if (foundPatient != null)
                     {
                         PatientList.Add(foundPatient);
                     }
@@ -64,7 +60,6 @@ namespace GlobalDentalUI
                 else
                 {
                     PatientList = DOP.Patients;
-                    return;
                 }
 
                 Populate_List();
@@ -85,7 +80,15 @@ namespace GlobalDentalUI
 
         private void OpenButton_Click(object sender, EventArgs e)
         {
-
+            if (SelectedPatientID != null)
+            {
+                MainForm.SetSelectedPatient((int)SelectedPatientID);
+                Close();
+            }
+            else
+            {
+                OpenButton.Enabled = false;
+            }
         }
 
         private void PatientIDTextBox_TextChanged(object sender, EventArgs e)
@@ -104,6 +107,15 @@ namespace GlobalDentalUI
             foreach (var Patient in PatientList)
             {
                 PatientSearchResults.Rows.Add(Patient.FirstName, Patient.LastName, Patient.Birthdate.ToLocalTime().ToShortDateString(), Patient.PatientID.ToString());
+            }
+
+            foreach (DataGridViewRow Row in PatientSearchResults.Rows)
+            {
+                if (Row.Selected)
+                {
+                    SelectPatientAtRow(Row);
+                    break;
+                }
             }
         }
 
@@ -124,6 +136,57 @@ namespace GlobalDentalUI
         private void SearchTypeDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             SearchTextBox.Text = "";
+        }
+
+        private void PatientSearchResults_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private MainWindow MainForm { get; set; }
+        private int? SelectedPatientID { get; set; }
+
+        private void PatientSearchResults_CellStateChanged(object sender, DataGridViewCellStateChangedEventArgs e)
+        {
+            
+        }
+
+        private void PatientSearchResults_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void SelectPatientAtRow(DataGridViewRow Row)
+        {
+            var SelectedID = Row.Cells[3].Value;
+
+            int ID;
+
+            try
+            {
+                ID = Convert.ToInt32(SelectedID);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Selected row had invalid patient ID of " + SelectedID.ToString());
+            }
+
+            SelectedPatientID = ID;
+
+            OpenButton.Enabled = true;
+        }
+
+        private void PatientSearchResults_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            if (e.Row.Selected == false)
+            {
+                OpenButton.Enabled = false;
+                SelectedPatientID = null;
+            }
+            else if (e.Row.Selected == true)
+            {
+                SelectPatientAtRow(e.Row);
+            }
         }
     }
 }

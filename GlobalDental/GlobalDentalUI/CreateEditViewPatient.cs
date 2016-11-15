@@ -14,7 +14,7 @@ namespace GlobalDentalUI
 {
     public partial class CreateEditViewPatient : Form
     {
-        public CreateEditViewPatient(DentalOutreachProgram DOP)
+        public CreateEditViewPatient(DentalOutreachProgram DOP, MainWindow MainForm)
         {
             InitializeComponent();
 
@@ -23,6 +23,7 @@ namespace GlobalDentalUI
             PatientIDTextBox.Text = "N/A (New Patient)";
 
             this.DOP = DOP;
+            this.MainForm = MainForm;
         }
 
         public CreateEditViewPatient(DentalOutreachProgram DOP, int ID)
@@ -69,6 +70,7 @@ namespace GlobalDentalUI
         private DentalOutreachProgram DOP { get; set; }
         private int? PatientID { get; set; }
 
+        private MainWindow MainForm { get; set; }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
@@ -81,7 +83,7 @@ namespace GlobalDentalUI
 
             if (PatientID == null)
             {
-                DOP.AddPatient(DOBPicker.Value, FirstNameTextBox.Text, LastNameTextBox.Text, RegionTextBox.Text, CountryTextBox.Text, NotesTextBox.Text, newGender);
+                MainForm.SetSelectedPatient(DOP.AddPatient(DOBPicker.Value, FirstNameTextBox.Text, LastNameTextBox.Text, RegionTextBox.Text, CountryTextBox.Text, NotesTextBox.Text, newGender).PatientID);
             }
             else
             {

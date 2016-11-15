@@ -32,15 +32,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SearchTypeDropdown = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.OpenButton = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.PatientSearchResults = new System.Windows.Forms.DataGridView();
             this.LastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DOBColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OpenButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SearchTypeDropdown = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -80,6 +80,36 @@
             this.panel1.Size = new System.Drawing.Size(484, 80);
             this.panel1.TabIndex = 4;
             // 
+            // SearchTypeDropdown
+            // 
+            this.SearchTypeDropdown.FormattingEnabled = true;
+            this.SearchTypeDropdown.Location = new System.Drawing.Point(220, 21);
+            this.SearchTypeDropdown.Name = "SearchTypeDropdown";
+            this.SearchTypeDropdown.Size = new System.Drawing.Size(84, 21);
+            this.SearchTypeDropdown.TabIndex = 9;
+            this.SearchTypeDropdown.Text = "Select One...";
+            this.SearchTypeDropdown.SelectedIndexChanged += new System.EventHandler(this.SearchTypeDropdown_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(217, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Search By";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // OpenButton
+            // 
+            this.OpenButton.Location = new System.Drawing.Point(358, 21);
+            this.OpenButton.Name = "OpenButton";
+            this.OpenButton.Size = new System.Drawing.Size(75, 23);
+            this.OpenButton.TabIndex = 7;
+            this.OpenButton.Text = "Open";
+            this.OpenButton.UseVisualStyleBackColor = true;
+            this.OpenButton.Click += new System.EventHandler(this.OpenButton_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -101,6 +131,9 @@
             // 
             // PatientSearchResults
             // 
+            this.PatientSearchResults.AllowUserToAddRows = false;
+            this.PatientSearchResults.AllowUserToDeleteRows = false;
+            this.PatientSearchResults.AllowUserToOrderColumns = true;
             this.PatientSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PatientSearchResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.LastNameColumn,
@@ -110,8 +143,13 @@
             this.PatientSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PatientSearchResults.Location = new System.Drawing.Point(0, 0);
             this.PatientSearchResults.Name = "PatientSearchResults";
+            this.PatientSearchResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PatientSearchResults.Size = new System.Drawing.Size(484, 377);
             this.PatientSearchResults.TabIndex = 0;
+            this.PatientSearchResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientSearchResults_CellClick);
+            this.PatientSearchResults.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientSearchResults_CellLeave);
+            this.PatientSearchResults.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.PatientSearchResults_CellStateChanged);
+            this.PatientSearchResults.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.PatientSearchResults_RowStateChanged);
             // 
             // LastNameColumn
             // 
@@ -140,36 +178,6 @@
             this.PatientIDColumn.HeaderText = "ID";
             this.PatientIDColumn.Name = "PatientIDColumn";
             this.PatientIDColumn.ReadOnly = true;
-            // 
-            // OpenButton
-            // 
-            this.OpenButton.Location = new System.Drawing.Point(358, 21);
-            this.OpenButton.Name = "OpenButton";
-            this.OpenButton.Size = new System.Drawing.Size(75, 23);
-            this.OpenButton.TabIndex = 7;
-            this.OpenButton.Text = "Open";
-            this.OpenButton.UseVisualStyleBackColor = true;
-            this.OpenButton.Click += new System.EventHandler(this.OpenButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(217, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Search By";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // SearchTypeDropdown
-            // 
-            this.SearchTypeDropdown.FormattingEnabled = true;
-            this.SearchTypeDropdown.Location = new System.Drawing.Point(220, 21);
-            this.SearchTypeDropdown.Name = "SearchTypeDropdown";
-            this.SearchTypeDropdown.Size = new System.Drawing.Size(84, 21);
-            this.SearchTypeDropdown.TabIndex = 9;
-            this.SearchTypeDropdown.Text = "Select One...";
-            this.SearchTypeDropdown.SelectedIndexChanged += new System.EventHandler(this.SearchTypeDropdown_SelectedIndexChanged);
             // 
             // PatientSearch
             // 

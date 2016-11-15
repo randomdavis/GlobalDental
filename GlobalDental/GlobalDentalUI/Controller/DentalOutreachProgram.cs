@@ -13,6 +13,45 @@ namespace GlobalDentalUI.Controller
             ProgramName = name;
         }
 
+        public Treatment AddTreatment(int PatientID, Treatment.TreatmentType Type, Treatment.TreatmentSurfaces TreatmentSurfaces, Treatment.TreatmentStatus Status, int toothNumber, bool isUSAToothNumber = true)
+        {
+            Patient gottenPatient = GetPatient(PatientID);
+
+            if (gottenPatient != null)
+            {
+                Tooth TreatmentTooth = null;
+
+                foreach (Tooth FoundTooth in gottenPatient.Teeth)
+                {
+                    if(isUSAToothNumber == true)
+                    {
+                        if (FoundTooth.Number.USAToothNumber == toothNumber)
+                        {
+                            TreatmentTooth = FoundTooth;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (FoundTooth.Number.UniversalToothNumber == toothNumber)
+                        {
+                            TreatmentTooth = FoundTooth;
+                            break;
+                        }
+                    }
+                    
+                }
+
+                Treatment newTreatment = new Treatment(Type, TreatmentSurfaces, Status, TreatmentTooth);
+                gottenPatient.TreatmentsList.Add(newTreatment);
+                return newTreatment;
+            }
+            else
+            {
+                throw new Exception("Invalid patient ID " + PatientID.ToString());
+            }
+        }
+
         public Patient AddPatient(DateTime BirthDate, string FirstName, string LastName, string Region, string Country, string Notes, Patient.Gender Gender)
         {
             var NewPatient = new Patient(Patients.Count + 1, BirthDate, FirstName, LastName, Region, Country, Gender, Notes);
