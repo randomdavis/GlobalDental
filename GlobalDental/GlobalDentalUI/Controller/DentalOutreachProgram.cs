@@ -82,6 +82,38 @@ namespace GlobalDentalUI.Controller
             return false;
         }
 
+        public void ExistingOtherOnTooth(int patientID, int toothNumber, bool isUSANumber = true)
+        {
+            Patient patient = GetPatient(patientID);
+
+            int USANumber = toothNumber;
+
+            int[] UniversalToothNumbers = { 18, 17, 16, 15, 14, 13, 12, 11, 28, 27, 26, 25, 24, 23, 22, 21,
+                    48, 47, 46, 45, 44, 43, 42, 41, 38, 37, 36, 35, 34, 33, 32, 31 };
+
+            if (isUSANumber == false)
+            {
+                for (int i = 0; i < 32; i++)
+                {
+                    if (UniversalToothNumbers[i] == toothNumber)
+                    {
+                        USANumber = i + 1;
+                    }
+                }
+            }
+
+            foreach (Treatment treatment in patient.TreatmentsList)
+            {
+                if (treatment.TreatmentTooth != null)
+                {
+                    if (treatment.Status == Treatment.TreatmentStatus.Planned && treatment.TreatmentTooth.Number.USAToothNumber == toothNumber)
+                    {
+                        treatment.Status = Treatment.TreatmentStatus.Existing;
+                    }
+                }
+            }
+        }
+
         public void CompleteTreatmentsOnTooth(int patientID, int toothNumber, bool isUSANumber = true)
         {
             Patient patient = GetPatient(patientID);
@@ -104,9 +136,12 @@ namespace GlobalDentalUI.Controller
 
             foreach (Treatment treatment in patient.TreatmentsList)
             {
-                if (treatment.Status == Treatment.TreatmentStatus.Planned && treatment.TreatmentTooth.Number.USAToothNumber == toothNumber)
+                if (treatment.TreatmentTooth != null)
                 {
-                    treatment.Status = Treatment.TreatmentStatus.Completed;
+                    if (treatment.Status == Treatment.TreatmentStatus.Planned && treatment.TreatmentTooth.Number.USAToothNumber == toothNumber)
+                    {
+                        treatment.Status = Treatment.TreatmentStatus.Completed;
+                    }
                 }
             }
         }

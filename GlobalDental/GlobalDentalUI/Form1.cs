@@ -83,11 +83,11 @@ namespace GlobalDentalUI
             switch (Status)
             {
                 case Model.Treatment.TreatmentStatus.Existing:
-                    return Color.Blue;
+                    return Color.Green;
                 case Model.Treatment.TreatmentStatus.Planned:
                     return Color.Red;
                 case Model.Treatment.TreatmentStatus.Completed:
-                    return Color.Green;
+                    return Color.Blue;
                 default:
                     return Color.Black;
             }
@@ -111,7 +111,7 @@ namespace GlobalDentalUI
                     {
                         panel.Enabled = false;
                     }
-                    else if (Treatment.Type == Model.Treatment.TreatmentType.Amalgam || Treatment.Type == Model.Treatment.TreatmentType.Composite || Treatment.Type == Model.Treatment.TreatmentType.Sealants)
+                    else if (Treatment.Type == Model.Treatment.TreatmentType.Extraction || Treatment.Type == Model.Treatment.TreatmentType.Amalgam || Treatment.Type == Model.Treatment.TreatmentType.Composite || Treatment.Type == Model.Treatment.TreatmentType.Sealants)
                     {
                         if (Treatment.Surfaces.Buccal == true)
                         {
@@ -265,7 +265,6 @@ namespace GlobalDentalUI
 
         public void SetSelectedPatient(int ID)
         {
-            DeselectPatient();
             SelectedPatient = DOP.GetPatient(ID);
             Text = Title + " - Patient " + SelectedPatient.LastName + ", " + SelectedPatient.FirstName + " (" + SelectedPatient.PatientID.ToString() + ")";
             editPatientToolStripMenuItem.Enabled = true;
@@ -345,12 +344,14 @@ namespace GlobalDentalUI
 
         private void ExtractionButton_Click(object sender, EventArgs e)
         {
-            DOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Extraction, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, 0);
+            
             foreach (Panel p in OdontogramLayoutPanel.Controls)
             {
                 CheckBox cb = (CheckBox)(p.Controls[p.Controls.Count - 1]);
                 if (cb.Checked == true)
                 {
+                    int toothNumber = Convert.ToInt32(cb.Text);
+                    DOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Extraction, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, toothNumber);
                     cb.Checked = false;
                 }
             }
@@ -412,6 +413,24 @@ namespace GlobalDentalUI
                     int toothNumber = Convert.ToInt32(cb.Text);
 
                     DOP.CompleteTreatmentsOnTooth(SelectedPatient.PatientID, toothNumber);
+
+                    cb.Checked = false;
+                }
+            }
+            UpdateTreatmentPlanList();
+        }
+
+        private void ExistingOtherButton_Click(object sender, EventArgs e)
+        {
+            foreach (Panel p in OdontogramLayoutPanel.Controls)
+            {
+                CheckBox cb = (CheckBox)(p.Controls[p.Controls.Count - 1]);
+
+                if (cb.Checked == true)
+                {
+                    int toothNumber = Convert.ToInt32(cb.Text);
+
+                    DOP.ExistingOtherOnTooth(SelectedPatient.PatientID, toothNumber);
 
                     cb.Checked = false;
                 }
