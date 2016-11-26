@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateEditViewPatient));
             this.SaveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.PatientIDTextBox = new System.Windows.Forms.TextBox();
             this.FemaleButton = new System.Windows.Forms.RadioButton();
             this.MaleButton = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
@@ -44,11 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.FirstNameTextBox = new System.Windows.Forms.TextBox();
-            this.NotesTextBox = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.PatientIDTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,6 +81,25 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(460, 210);
             this.panel1.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(209, 164);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Patient ID#";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // PatientIDTextBox
+            // 
+            this.PatientIDTextBox.Location = new System.Drawing.Point(208, 180);
+            this.PatientIDTextBox.Name = "PatientIDTextBox";
+            this.PatientIDTextBox.ReadOnly = true;
+            this.PatientIDTextBox.Size = new System.Drawing.Size(200, 20);
+            this.PatientIDTextBox.TabIndex = 14;
+            this.PatientIDTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // FemaleButton
             // 
@@ -196,25 +213,6 @@
             this.FirstNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.FirstNameTextBox.TabIndex = 0;
             // 
-            // NotesTextBox
-            // 
-            this.NotesTextBox.Location = new System.Drawing.Point(12, 241);
-            this.NotesTextBox.Name = "NotesTextBox";
-            this.NotesTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.NotesTextBox.Size = new System.Drawing.Size(369, 208);
-            this.NotesTextBox.TabIndex = 2;
-            this.NotesTextBox.Text = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 225);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Notes";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // CancelButton
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -226,35 +224,13 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(209, 164);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 13);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Patient ID#";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // PatientIDTextBox
-            // 
-            this.PatientIDTextBox.Location = new System.Drawing.Point(208, 180);
-            this.PatientIDTextBox.Name = "PatientIDTextBox";
-            this.PatientIDTextBox.ReadOnly = true;
-            this.PatientIDTextBox.Size = new System.Drawing.Size(200, 20);
-            this.PatientIDTextBox.TabIndex = 14;
-            this.PatientIDTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // CreateEditViewPatient
             // 
             this.AcceptButton = this.SaveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.NotesTextBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.SaveButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -269,7 +245,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -277,8 +252,6 @@
 
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RichTextBox NotesTextBox;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox LastNameTextBox;
         private System.Windows.Forms.Label label3;

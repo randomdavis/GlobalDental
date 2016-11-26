@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GlobalDentalUI.Controller;
 
@@ -17,9 +11,26 @@ namespace GlobalDentalUI
         {
             Title = "Global Dental © 2016 Random Davis";
             InitializeComponent();
+
             DOP = new DentalOutreachProgram();
-            Model.Patient testpatient = DOP.AddPatient(DateTime.Now, "Johnny", "Appleseed", "Oregon", "USA", "John is kill\no", Model.Patient.Gender.Male);
-            DOP.AddPatient(DateTime.Now, "Thompy", "Tearres", "Jefferton", "USA", "Tommy Boy", Model.Patient.Gender.Male);
+
+            /*try
+            {
+                DOP = DOP.Deserialize();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);*/
+                DOP = new DentalOutreachProgram();
+                Model.Patient testpatient = DOP.AddPatient(DateTime.Now, "Johnny", "Appleseed", "Oregon", "USA", Model.Patient.Gender.Male);
+                DOP.AddPatient(DateTime.Now, "Tom", "Peters", "Jefferton", "USA", Model.Patient.Gender.Male);
+                DOP.AddPatient(DateTime.Now, "Tommy", "Wiseau", "San Francisco", "USA", Model.Patient.Gender.Male);
+                DOP.AddPatient(DateTime.Now, "Lisa", "Wiseau", "San Francisco", "USA", Model.Patient.Gender.Female);
+                DOP.AddTreatment(testpatient.PatientID, Model.Treatment.TreatmentType.Amalgam, new Model.Treatment.TreatmentSurfaces(false, true, false, true, false, true), Model.Treatment.TreatmentStatus.Planned, 15);
+                DOP.AddTreatment(testpatient.PatientID, Model.Treatment.TreatmentType.Composite, new Model.Treatment.TreatmentSurfaces(false, false, true, false, true, false), Model.Treatment.TreatmentStatus.Planned, 4);
+                DOP.Serialize();
+            /*}*/
+
             SelectedPatient = null;
             Text = Title;
             editPatientToolStripMenuItem.Enabled = false;
@@ -29,11 +40,9 @@ namespace GlobalDentalUI
             OdontogramLayoutPanel.Enabled = false;
             ShortcutButtonTable.Enabled = false;
 
-            DOP.AddTreatment(testpatient.PatientID, Model.Treatment.TreatmentType.Amalgam, new Model.Treatment.TreatmentSurfaces(false, true, false, true, false, true), Model.Treatment.TreatmentStatus.Planned, 15);
-            DOP.AddTreatment(testpatient.PatientID, Model.Treatment.TreatmentType.Composite, new Model.Treatment.TreatmentSurfaces(false, false, true, false, true, false), Model.Treatment.TreatmentStatus.Planned, 4);
-
             Create_Odontogram();
             OdontogramLayoutPanel.Enabled = false;
+            
         }
 
         private void Create_Odontogram()
@@ -94,17 +103,18 @@ namespace GlobalDentalUI
 
         }
 
-        private void Update_Odontogram()
+        public void Update_Odontogram()
         {
-            if(SelectedPatient != null)
+            Create_Odontogram();
+            if (SelectedPatient != null)
             {
                 foreach (Model.Treatment Treatment in SelectedPatient.TreatmentsList)
                 {
-                    if (Treatment.TreatmentTooth == null)
+                    if (Treatment.ToothNumber == null || Treatment.ToothNumber < 1 || Treatment.ToothNumber > 32)
                     {
                         continue;
                     }
-                    Panel panel = (Panel)OdontogramLayoutPanel.Controls[Treatment.TreatmentTooth.Number.USAToothNumber - 1];
+                    Panel panel = (Panel)OdontogramLayoutPanel.Controls[(int)Treatment.ToothNumber - 1];
                     Color setColor = StatusToColor(Treatment.Status);
 
                     if (Treatment.Type == Model.Treatment.TreatmentType.Extraction && (Treatment.Status == Model.Treatment.TreatmentStatus.Completed || Treatment.Status == Model.Treatment.TreatmentStatus.Existing))
@@ -215,7 +225,7 @@ namespace GlobalDentalUI
             SelectPatientDialog.Show();
         }
 
-        private void UpdateTreatmentPlanList()
+        public void UpdateTreatmentPlanList()
         {
             TreatmentPlanDataTable.Rows.Clear();
 
@@ -223,6 +233,7 @@ namespace GlobalDentalUI
             {
                 foreach (Model.Treatment Treatment in SelectedPatient.TreatmentsList)
                 {
+                    string id = Treatment.ID.ToString();
                     string date = Treatment.DateAndTime.ToLocalTime().ToString();
                     string type = Treatment.Type.ToString();
                     string status = Treatment.Status.ToString();
@@ -230,9 +241,9 @@ namespace GlobalDentalUI
                     string surfaces;
                     string code;
 
-                    if (Treatment.TreatmentTooth != null)
+                    if (Treatment.ToothNumber != null)
                     {
-                        toothNumber = Treatment.TreatmentTooth.Number.USAToothNumber.ToString();
+                        toothNumber = Treatment.ToothNumber.ToString();
                         surfaces = Treatment.SurfacesString();
                         code = Treatment.Code();
                     }
@@ -243,7 +254,7 @@ namespace GlobalDentalUI
                         code = Treatment.Code(false);
                     }
 
-                    TreatmentPlanDataTable.Rows.Add(date, toothNumber, surfaces, code, type, status);
+                    TreatmentPlanDataTable.Rows.Add(id, date, toothNumber, surfaces, code, type, status);
                 }
             }
             Update_Odontogram();
@@ -436,6 +447,27 @@ namespace GlobalDentalUI
                 }
             }
             UpdateTreatmentPlanList();
+        }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DOP.Serialize();
+        }
+
+        private void TreatmentPlanDataTable_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+
+        }
+
+        private void TreatmentPlanDataTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void TreatmentPlanDataTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var EditTreatmentDialog = new EditTreatmentWindow(DOP, this, Convert.ToInt32(TreatmentPlanDataTable.Rows[e.RowIndex].Cells["ID"].Value), SelectedPatient.PatientID);
+            EditTreatmentDialog.Show();
         }
     }
 }

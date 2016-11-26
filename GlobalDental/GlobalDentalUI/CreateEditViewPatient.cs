@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using GlobalDentalUI.Controller;
 using GlobalDentalUI.Model;
@@ -41,7 +34,6 @@ namespace GlobalDentalUI
                 FirstNameTextBox.Text = foundPatient.FirstName;
                 LastNameTextBox.Text = foundPatient.LastName;
                 DOBPicker.Value = foundPatient.Birthdate.ToLocalTime();
-                NotesTextBox.Text = foundPatient.PatientNotes;
                 MaleButton.Checked = foundPatient.PatientGender == Patient.Gender.Male;
                 FemaleButton.Checked = foundPatient.PatientGender == Patient.Gender.Female;
                 RegionTextBox.Text = foundPatient.Region;
@@ -84,11 +76,11 @@ namespace GlobalDentalUI
 
             if (PatientID == null)
             {
-                MainForm.SetSelectedPatient(DOP.AddPatient(DOBPicker.Value, FirstNameTextBox.Text, LastNameTextBox.Text, RegionTextBox.Text, CountryTextBox.Text, NotesTextBox.Text, newGender).PatientID);
+                MainForm.SetSelectedPatient(DOP.AddPatient(DOBPicker.Value, FirstNameTextBox.Text, LastNameTextBox.Text, RegionTextBox.Text, CountryTextBox.Text, newGender).PatientID);
             }
             else
             {
-                DOP.UpdatePatient((int)PatientID, DOBPicker.Value, FirstNameTextBox.Text, LastNameTextBox.Text, RegionTextBox.Text, CountryTextBox.Text, NotesTextBox.Text, newGender);
+                DOP.UpdatePatient((int)PatientID, DOBPicker.Value, FirstNameTextBox.Text, LastNameTextBox.Text, RegionTextBox.Text, CountryTextBox.Text, newGender);
             }
 
             Close();

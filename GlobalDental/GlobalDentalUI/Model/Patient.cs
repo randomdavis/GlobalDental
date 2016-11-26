@@ -11,7 +11,7 @@ namespace GlobalDentalUI.Model
             Female
         }
 
-        public Patient(int PatientID, DateTime Birthdate, string FirstName, string LastName, string Region, string Country, Gender PatientGender, string PatientNotes)
+        public Patient(int PatientID, DateTime Birthdate, string FirstName, string LastName, string Region, string Country, Gender PatientGender)
         {
             this.PatientID = PatientID;
             this.Birthdate = Birthdate;
@@ -20,14 +20,8 @@ namespace GlobalDentalUI.Model
             this.Region = Region;
             this.Country = Country;
             this.PatientGender = PatientGender;
-            this.PatientNotes = PatientNotes;
             CreationDate = DateTime.Now.ToUniversalTime();
             TreatmentsList = new List<Treatment>();
-            Teeth = new List<Tooth>();
-            for (int i = 1; i <= 32; i++)
-            {
-                Teeth.Add(new Tooth(i, true));
-            }
         }
 
         public int PatientID { get; private set; }
@@ -37,10 +31,8 @@ namespace GlobalDentalUI.Model
         public string Region { get; set; }
         public string Country { get; set; }
         public Gender PatientGender { get; set; }
-        public string PatientNotes { get; set; }
         public string TreatmentNotes { get; set; }
         public DateTime CreationDate { get; private set; }
         public List<Treatment> TreatmentsList { get; }
-        public List<Tooth> Teeth { get; private set; }
     }
 }

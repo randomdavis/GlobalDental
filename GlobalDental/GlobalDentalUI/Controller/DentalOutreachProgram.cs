@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GlobalDentalUI.Model;
+using Newtonsoft.Json;
 
 namespace GlobalDentalUI.Controller
 {
@@ -13,39 +14,23 @@ namespace GlobalDentalUI.Controller
             ProgramName = name;
         }
 
-        public Treatment AddTreatment(int PatientID, Treatment.TreatmentType Type, Treatment.TreatmentSurfaces TreatmentSurfaces, Treatment.TreatmentStatus Status, int toothNumber, bool isUSAToothNumber = true)
+        public void Serialize(string outFile = "data.json")
+        {
+            System.IO.File.WriteAllText(outFile, JsonConvert.SerializeObject(this));
+        }
+
+        public DentalOutreachProgram Deserialize(string outFile = "data.json")
+        {
+            return JsonConvert.DeserializeObject<DentalOutreachProgram>(System.IO.File.ReadAllText(outFile));
+        }
+
+        public Treatment AddTreatment(int PatientID, Treatment.TreatmentType Type, Treatment.TreatmentSurfaces TreatmentSurfaces, Treatment.TreatmentStatus Status, int toothNumber)
         {
             Patient gottenPatient = GetPatient(PatientID);
 
             if (gottenPatient != null)
             {
-                Tooth TreatmentTooth = null;
-
-                if (toothNumber != 0)
-                {
-                    foreach (Tooth FoundTooth in gottenPatient.Teeth)
-                    {
-                        if (isUSAToothNumber == true)
-                        {
-                            if (FoundTooth.Number.USAToothNumber == toothNumber)
-                            {
-                                TreatmentTooth = FoundTooth;
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            if (FoundTooth.Number.UniversalToothNumber == toothNumber)
-                            {
-                                TreatmentTooth = FoundTooth;
-                                break;
-                            }
-                        }
-
-                    }
-                }
-
-                Treatment newTreatment = new Treatment(Type, TreatmentSurfaces, Status, TreatmentTooth);
+                Treatment newTreatment = new Treatment(gottenPatient.TreatmentsList.Count + 1, Type, TreatmentSurfaces, Status, toothNumber);
                 gottenPatient.TreatmentsList.Add(newTreatment);
                 return newTreatment;
             }
@@ -55,14 +40,14 @@ namespace GlobalDentalUI.Controller
             }
         }
 
-        public Patient AddPatient(DateTime BirthDate, string FirstName, string LastName, string Region, string Country, string Notes, Patient.Gender Gender)
+        public Patient AddPatient(DateTime BirthDate, string FirstName, string LastName, string Region, string Country, Patient.Gender Gender)
         {
-            var NewPatient = new Patient(Patients.Count + 1, BirthDate, FirstName, LastName, Region, Country, Gender, Notes);
+            var NewPatient = new Patient(Patients.Count + 1, BirthDate, FirstName, LastName, Region, Country, Gender);
             Patients.Add(NewPatient);
             return NewPatient;
         }
 
-        public bool UpdatePatient(int ID, DateTime BirthDate, string FirstName, string LastName, string Region, string Country, string Notes, Patient.Gender Gender)
+        public bool UpdatePatient(int ID, DateTime BirthDate, string FirstName, string LastName, string Region, string Country, Patient.Gender Gender)
         {
             foreach (var Patient in Patients)
             {
@@ -73,7 +58,6 @@ namespace GlobalDentalUI.Controller
                     Patient.LastName = LastName;
                     Patient.Region = Region;
                     Patient.Country = Country;
-                    Patient.PatientNotes = Notes;
                     Patient.PatientGender = Gender;
                     return true;
                 }
@@ -82,31 +66,32 @@ namespace GlobalDentalUI.Controller
             return false;
         }
 
-        public void ExistingOtherOnTooth(int patientID, int toothNumber, bool isUSANumber = true)
+        public bool UpdateTreatment(int PatientID, int TreatmentID, Treatment.TreatmentStatus Status, int? ToothNumber)
+        {
+            var TreatmentToUpdate = GetTreatment(TreatmentID, PatientID);
+
+            if (TreatmentToUpdate != null)
+            {
+                if (TreatmentToUpdate.Status != Status)
+                {
+                    TreatmentToUpdate.SetStatus(Status);
+                }
+                TreatmentToUpdate.ToothNumber = ToothNumber;
+                return true;
+            }
+
+            return false;
+        }
+
+        public void ExistingOtherOnTooth(int patientID, int toothNumber)
         {
             Patient patient = GetPatient(patientID);
 
-            int USANumber = toothNumber;
-
-            int[] UniversalToothNumbers = { 18, 17, 16, 15, 14, 13, 12, 11, 28, 27, 26, 25, 24, 23, 22, 21,
-                    48, 47, 46, 45, 44, 43, 42, 41, 38, 37, 36, 35, 34, 33, 32, 31 };
-
-            if (isUSANumber == false)
-            {
-                for (int i = 0; i < 32; i++)
-                {
-                    if (UniversalToothNumbers[i] == toothNumber)
-                    {
-                        USANumber = i + 1;
-                    }
-                }
-            }
-
             foreach (Treatment treatment in patient.TreatmentsList)
             {
-                if (treatment.TreatmentTooth != null)
+                if (treatment.ToothNumber != null)
                 {
-                    if (treatment.Status == Treatment.TreatmentStatus.Planned && treatment.TreatmentTooth.Number.USAToothNumber == toothNumber)
+                    if (treatment.Status == Treatment.TreatmentStatus.Planned && treatment.ToothNumber == toothNumber)
                     {
                         treatment.Status = Treatment.TreatmentStatus.Existing;
                     }
@@ -114,31 +99,15 @@ namespace GlobalDentalUI.Controller
             }
         }
 
-        public void CompleteTreatmentsOnTooth(int patientID, int toothNumber, bool isUSANumber = true)
+        public void CompleteTreatmentsOnTooth(int patientID, int toothNumber)
         {
             Patient patient = GetPatient(patientID);
 
-            int USANumber = toothNumber;
-
-            int[] UniversalToothNumbers = { 18, 17, 16, 15, 14, 13, 12, 11, 28, 27, 26, 25, 24, 23, 22, 21,
-                    48, 47, 46, 45, 44, 43, 42, 41, 38, 37, 36, 35, 34, 33, 32, 31 };
-
-            if (isUSANumber == false)
-            {
-                for (int i = 0; i < 32; i++)
-                {
-                    if(UniversalToothNumbers[i] == toothNumber)
-                    {
-                        USANumber = i + 1;
-                    }
-                }
-            }
-
             foreach (Treatment treatment in patient.TreatmentsList)
             {
-                if (treatment.TreatmentTooth != null)
+                if (treatment.ToothNumber != null)
                 {
-                    if (treatment.Status == Treatment.TreatmentStatus.Planned && treatment.TreatmentTooth.Number.USAToothNumber == toothNumber)
+                    if (treatment.Status == Treatment.TreatmentStatus.Planned && treatment.ToothNumber == toothNumber)
                     {
                         treatment.Status = Treatment.TreatmentStatus.Completed;
                     }
@@ -172,6 +141,25 @@ namespace GlobalDentalUI.Controller
                 if (Patient.PatientID == ID)
                 {
                     return Patient;
+                }
+            }
+
+            return null;
+        }
+
+        public Treatment GetTreatment(int TreatmentID, int PatientID)
+        {
+            foreach (var Patient in Patients)
+            {
+                if (Patient.PatientID == PatientID)
+                {
+                    foreach (var Treatment in Patient.TreatmentsList)
+                    {
+                        if (Treatment.ID == TreatmentID)
+                        {
+                            return Treatment;
+                        }
+                    }
                 }
             }
 
