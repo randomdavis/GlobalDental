@@ -77,6 +77,12 @@
     <Compile Include="Controller\DentalOutreachProgram.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Treatment.cs" />
+    <Compile Include="OdontogramPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OdontogramPanel.Designer.cs">
+      <DependentUpon>OdontogramPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="PatientSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OdontogramPanel.resx">
+      <DependentUpon>OdontogramPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PatientSearch.resx">
       <DependentUpon>PatientSearch.cs</DependentUpon>

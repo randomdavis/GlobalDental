@@ -50,13 +50,12 @@ namespace GlobalDentalUI
             OdontogramLayoutPanel.Enabled = true;
             OdontogramLayoutPanel.Controls.Clear();
 
-            for (int i = 1; i <= 32; i++)
+            for (int i = 1; i <= 16; i++)
             {
-                /*var newPanel = new Panel();
-                newPanel.Dock = Dock = System.Windows.Forms.DockStyle.Fill;
-                var newItem = new CheckBox();
-                newItem.Text = i.ToString();*/
-
+                OdontogramLayoutPanel.Controls.Add(ToothPanel(i));
+            }
+            for (int i = 32; i >= 17; i--)
+            {
                 OdontogramLayoutPanel.Controls.Add(ToothPanel(i));
             }
         }
@@ -68,9 +67,9 @@ namespace GlobalDentalUI
             var checkBox = new CheckBox();
             checkBox.Text = number.ToString();
             checkBox.Dock = DockStyle.Top;
-            
 
-            string[] surfaces = { "O", "M", "L", "D", "B" };
+
+            /*string[] surfaces = { "O", "M", "L", "D", "B" };
 
             foreach (string label in surfaces)
             {
@@ -80,33 +79,21 @@ namespace GlobalDentalUI
                 newLabel.ForeColor = Color.Black;
                 newLabel.Dock = DockStyle.Top;
                 newPanel.Controls.Add(newLabel);
-            }
+            }*/
+
+            newPanel.Controls.Add(new OdontogramPanel(this, DOP, SelectedPatient, number));
 
             newPanel.Controls.Add(checkBox);
 
             return newPanel;
         }
 
-        private Color StatusToColor(Model.Treatment.TreatmentStatus Status)
-        {
-            switch (Status)
-            {
-                case Model.Treatment.TreatmentStatus.Existing:
-                    return Color.Green;
-                case Model.Treatment.TreatmentStatus.Planned:
-                    return Color.Red;
-                case Model.Treatment.TreatmentStatus.Completed:
-                    return Color.Blue;
-                default:
-                    return Color.Black;
-            }
-
-        }
+        
 
         public void Update_Odontogram()
         {
             Create_Odontogram();
-            if (SelectedPatient != null)
+            /*if (SelectedPatient != null)
             {
                 foreach (Model.Treatment Treatment in SelectedPatient.TreatmentsList)
                 {
@@ -152,7 +139,7 @@ namespace GlobalDentalUI
                         }
                     }
                 }
-            }
+            }*/
 
         }
 
@@ -309,7 +296,8 @@ namespace GlobalDentalUI
                 if (cb.Checked == true)
                 {
                     cb.Checked = false;
-                    DOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Extraction, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Existing, i);
+                    int toothNumber = Convert.ToInt32(cb.Text);
+                    DOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Extraction, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Existing, toothNumber);
                 }
 
                 i++;
