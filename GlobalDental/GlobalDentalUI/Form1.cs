@@ -14,13 +14,13 @@ namespace GlobalDentalUI
 
             DOP = new DentalOutreachProgram();
 
-            /*try
+            try
             {
                 DOP = DOP.Deserialize();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);*/
+                Console.WriteLine(e);
                 DOP = new DentalOutreachProgram();
                 Model.Patient testpatient = DOP.AddPatient(DateTime.Now, "Johnny", "Appleseed", "Oregon", "USA", Model.Patient.Gender.Male);
                 DOP.AddPatient(DateTime.Now, "Tom", "Peters", "Jefferton", "USA", Model.Patient.Gender.Male);
@@ -29,7 +29,7 @@ namespace GlobalDentalUI
                 DOP.AddTreatment(testpatient.PatientID, Model.Treatment.TreatmentType.Amalgam, new Model.Treatment.TreatmentSurfaces(false, true, false, true, false, true), Model.Treatment.TreatmentStatus.Planned, 15);
                 DOP.AddTreatment(testpatient.PatientID, Model.Treatment.TreatmentType.Composite, new Model.Treatment.TreatmentSurfaces(false, false, true, false, true, false), Model.Treatment.TreatmentStatus.Planned, 4);
                 DOP.Serialize();
-            /*}*/
+            }
 
             SelectedPatient = null;
             Text = Title;

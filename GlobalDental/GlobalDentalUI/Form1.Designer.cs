@@ -57,11 +57,6 @@
             this.ProgressNotesView = new System.Windows.Forms.TabControl();
             this.TreatmentPlanTab = new System.Windows.Forms.TabPage();
             this.TreatmentPlanDataTable = new System.Windows.Forms.DataGridView();
-            this.NotesTab = new System.Windows.Forms.TabPage();
-            this.NotesTextBox = new System.Windows.Forms.RichTextBox();
-            this.MainHorizontalSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.TopTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.OdontogramLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ToothColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +64,11 @@
             this.CodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NotesTab = new System.Windows.Forms.TabPage();
+            this.NotesTextBox = new System.Windows.Forms.RichTextBox();
+            this.MainHorizontalSplitContainer = new System.Windows.Forms.SplitContainer();
+            this.TopTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.OdontogramLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.treatmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MainMenuStrip.SuspendLayout();
             this.ShortcutButtonTable.SuspendLayout();
@@ -191,7 +191,7 @@
             this.ShortcutButtonTable.Controls.Add(this.CompositeButton, 1, 1);
             this.ShortcutButtonTable.Dock = System.Windows.Forms.DockStyle.Top;
             this.ShortcutButtonTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.ShortcutButtonTable.Location = new System.Drawing.Point(785, 4);
+            this.ShortcutButtonTable.Location = new System.Drawing.Point(783, 4);
             this.ShortcutButtonTable.MinimumSize = new System.Drawing.Size(0, 150);
             this.ShortcutButtonTable.Name = "ShortcutButtonTable";
             this.ShortcutButtonTable.RowCount = 4;
@@ -199,7 +199,7 @@
             this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.ShortcutButtonTable.Size = new System.Drawing.Size(207, 150);
+            this.ShortcutButtonTable.Size = new System.Drawing.Size(209, 150);
             this.ShortcutButtonTable.TabIndex = 3;
             // 
             // ProphyButton
@@ -207,9 +207,9 @@
             this.ProphyButton.AutoSize = true;
             this.ProphyButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ProphyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProphyButton.Location = new System.Drawing.Point(106, 114);
+            this.ProphyButton.Location = new System.Drawing.Point(107, 114);
             this.ProphyButton.Name = "ProphyButton";
-            this.ProphyButton.Size = new System.Drawing.Size(98, 33);
+            this.ProphyButton.Size = new System.Drawing.Size(99, 33);
             this.ProphyButton.TabIndex = 7;
             this.ProphyButton.Text = "Pro";
             this.ProphyButton.UseVisualStyleBackColor = true;
@@ -225,12 +225,12 @@
             this.ShortcutTinyTable2.Controls.Add(this.CompleteButton, 0, 0);
             this.ShortcutTinyTable2.Controls.Add(this.MissingButton, 1, 0);
             this.ShortcutTinyTable2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ShortcutTinyTable2.Location = new System.Drawing.Point(103, 0);
+            this.ShortcutTinyTable2.Location = new System.Drawing.Point(104, 0);
             this.ShortcutTinyTable2.Margin = new System.Windows.Forms.Padding(0);
             this.ShortcutTinyTable2.Name = "ShortcutTinyTable2";
             this.ShortcutTinyTable2.RowCount = 1;
             this.ShortcutTinyTable2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ShortcutTinyTable2.Size = new System.Drawing.Size(104, 37);
+            this.ShortcutTinyTable2.Size = new System.Drawing.Size(105, 37);
             this.ShortcutTinyTable2.TabIndex = 1;
             // 
             // CompleteButton
@@ -253,7 +253,7 @@
             this.MissingButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MissingButton.Location = new System.Drawing.Point(55, 3);
             this.MissingButton.Name = "MissingButton";
-            this.MissingButton.Size = new System.Drawing.Size(46, 31);
+            this.MissingButton.Size = new System.Drawing.Size(47, 31);
             this.MissingButton.TabIndex = 3;
             this.MissingButton.Text = "M";
             this.MissingButton.UseVisualStyleBackColor = true;
@@ -266,7 +266,7 @@
             this.FluorideButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FluorideButton.Location = new System.Drawing.Point(3, 114);
             this.FluorideButton.Name = "FluorideButton";
-            this.FluorideButton.Size = new System.Drawing.Size(97, 33);
+            this.FluorideButton.Size = new System.Drawing.Size(98, 33);
             this.FluorideButton.TabIndex = 6;
             this.FluorideButton.Text = "FL";
             this.FluorideButton.UseVisualStyleBackColor = true;
@@ -287,7 +287,7 @@
             this.ShortcutTinyTable1.Name = "ShortcutTinyTable1";
             this.ShortcutTinyTable1.RowCount = 1;
             this.ShortcutTinyTable1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ShortcutTinyTable1.Size = new System.Drawing.Size(103, 37);
+            this.ShortcutTinyTable1.Size = new System.Drawing.Size(104, 37);
             this.ShortcutTinyTable1.TabIndex = 0;
             // 
             // TreatmentPlanButton
@@ -295,9 +295,10 @@
             this.TreatmentPlanButton.AutoSize = true;
             this.TreatmentPlanButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.TreatmentPlanButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TreatmentPlanButton.Enabled = false;
             this.TreatmentPlanButton.Location = new System.Drawing.Point(3, 3);
             this.TreatmentPlanButton.Name = "TreatmentPlanButton";
-            this.TreatmentPlanButton.Size = new System.Drawing.Size(45, 31);
+            this.TreatmentPlanButton.Size = new System.Drawing.Size(46, 31);
             this.TreatmentPlanButton.TabIndex = 0;
             this.TreatmentPlanButton.Text = "TX";
             this.TreatmentPlanButton.UseVisualStyleBackColor = true;
@@ -307,7 +308,7 @@
             this.ExistingOtherButton.AutoSize = true;
             this.ExistingOtherButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ExistingOtherButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ExistingOtherButton.Location = new System.Drawing.Point(54, 3);
+            this.ExistingOtherButton.Location = new System.Drawing.Point(55, 3);
             this.ExistingOtherButton.Name = "ExistingOtherButton";
             this.ExistingOtherButton.Size = new System.Drawing.Size(46, 31);
             this.ExistingOtherButton.TabIndex = 1;
@@ -320,9 +321,9 @@
             this.SealantsButton.AutoSize = true;
             this.SealantsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SealantsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SealantsButton.Location = new System.Drawing.Point(106, 77);
+            this.SealantsButton.Location = new System.Drawing.Point(107, 77);
             this.SealantsButton.Name = "SealantsButton";
-            this.SealantsButton.Size = new System.Drawing.Size(98, 31);
+            this.SealantsButton.Size = new System.Drawing.Size(99, 31);
             this.SealantsButton.TabIndex = 5;
             this.SealantsButton.Text = "Sealants";
             this.SealantsButton.UseVisualStyleBackColor = true;
@@ -335,7 +336,7 @@
             this.AmalgamButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AmalgamButton.Location = new System.Drawing.Point(3, 40);
             this.AmalgamButton.Name = "AmalgamButton";
-            this.AmalgamButton.Size = new System.Drawing.Size(97, 31);
+            this.AmalgamButton.Size = new System.Drawing.Size(98, 31);
             this.AmalgamButton.TabIndex = 2;
             this.AmalgamButton.Text = "Amalgam";
             this.AmalgamButton.UseVisualStyleBackColor = true;
@@ -348,7 +349,7 @@
             this.ExtractionButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ExtractionButton.Location = new System.Drawing.Point(3, 77);
             this.ExtractionButton.Name = "ExtractionButton";
-            this.ExtractionButton.Size = new System.Drawing.Size(97, 31);
+            this.ExtractionButton.Size = new System.Drawing.Size(98, 31);
             this.ExtractionButton.TabIndex = 4;
             this.ExtractionButton.Text = "exo";
             this.ExtractionButton.UseVisualStyleBackColor = true;
@@ -359,9 +360,9 @@
             this.CompositeButton.AutoSize = true;
             this.CompositeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CompositeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CompositeButton.Location = new System.Drawing.Point(106, 40);
+            this.CompositeButton.Location = new System.Drawing.Point(107, 40);
             this.CompositeButton.Name = "CompositeButton";
-            this.CompositeButton.Size = new System.Drawing.Size(98, 31);
+            this.CompositeButton.Size = new System.Drawing.Size(99, 31);
             this.CompositeButton.TabIndex = 3;
             this.CompositeButton.Text = "Composite";
             this.CompositeButton.UseVisualStyleBackColor = true;
@@ -417,93 +418,6 @@
             this.TreatmentPlanDataTable.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TreatmentPlanDataTable_CellDoubleClick);
             this.TreatmentPlanDataTable.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.TreatmentPlanDataTable_RowStateChanged);
             // 
-            // NotesTab
-            // 
-            this.NotesTab.Controls.Add(this.NotesTextBox);
-            this.NotesTab.Location = new System.Drawing.Point(4, 22);
-            this.NotesTab.Name = "NotesTab";
-            this.NotesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.NotesTab.Size = new System.Drawing.Size(988, 164);
-            this.NotesTab.TabIndex = 1;
-            this.NotesTab.Text = "Notes";
-            this.NotesTab.UseVisualStyleBackColor = true;
-            // 
-            // NotesTextBox
-            // 
-            this.NotesTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NotesTextBox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NotesTextBox.Location = new System.Drawing.Point(3, 3);
-            this.NotesTextBox.Name = "NotesTextBox";
-            this.NotesTextBox.Size = new System.Drawing.Size(982, 158);
-            this.NotesTextBox.TabIndex = 0;
-            this.NotesTextBox.Text = "";
-            this.NotesTextBox.TextChanged += new System.EventHandler(this.NotesTextBox_TextChanged);
-            // 
-            // MainHorizontalSplitContainer
-            // 
-            this.MainHorizontalSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.MainHorizontalSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainHorizontalSplitContainer.Location = new System.Drawing.Point(4, 53);
-            this.MainHorizontalSplitContainer.Name = "MainHorizontalSplitContainer";
-            this.MainHorizontalSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // MainHorizontalSplitContainer.Panel1
-            // 
-            this.MainHorizontalSplitContainer.Panel1.Controls.Add(this.TopTableLayout);
-            this.MainHorizontalSplitContainer.Panel1MinSize = 125;
-            // 
-            // MainHorizontalSplitContainer.Panel2
-            // 
-            this.MainHorizontalSplitContainer.Panel2.Controls.Add(this.ProgressNotesView);
-            this.MainHorizontalSplitContainer.Panel2MinSize = 125;
-            this.MainHorizontalSplitContainer.Size = new System.Drawing.Size(1000, 672);
-            this.MainHorizontalSplitContainer.SplitterDistance = 474;
-            this.MainHorizontalSplitContainer.TabIndex = 5;
-            // 
-            // TopTableLayout
-            // 
-            this.TopTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.TopTableLayout.ColumnCount = 2;
-            this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
-            this.TopTableLayout.Controls.Add(this.ShortcutButtonTable, 1, 0);
-            this.TopTableLayout.Controls.Add(this.OdontogramLayoutPanel, 0, 0);
-            this.TopTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TopTableLayout.Location = new System.Drawing.Point(0, 0);
-            this.TopTableLayout.Name = "TopTableLayout";
-            this.TopTableLayout.RowCount = 1;
-            this.TopTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TopTableLayout.Size = new System.Drawing.Size(996, 470);
-            this.TopTableLayout.TabIndex = 0;
-            // 
-            // OdontogramLayoutPanel
-            // 
-            this.OdontogramLayoutPanel.ColumnCount = 16;
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
-            this.OdontogramLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OdontogramLayoutPanel.Location = new System.Drawing.Point(4, 4);
-            this.OdontogramLayoutPanel.Name = "OdontogramLayoutPanel";
-            this.OdontogramLayoutPanel.RowCount = 2;
-            this.OdontogramLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.OdontogramLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.OdontogramLayoutPanel.Size = new System.Drawing.Size(774, 462);
-            this.OdontogramLayoutPanel.TabIndex = 4;
-            // 
             // ID
             // 
             this.ID.HeaderText = "ID";
@@ -553,6 +467,93 @@
             this.StatusColumn.ReadOnly = true;
             this.StatusColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.StatusColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // NotesTab
+            // 
+            this.NotesTab.Controls.Add(this.NotesTextBox);
+            this.NotesTab.Location = new System.Drawing.Point(4, 22);
+            this.NotesTab.Name = "NotesTab";
+            this.NotesTab.Padding = new System.Windows.Forms.Padding(3);
+            this.NotesTab.Size = new System.Drawing.Size(988, 164);
+            this.NotesTab.TabIndex = 1;
+            this.NotesTab.Text = "Notes";
+            this.NotesTab.UseVisualStyleBackColor = true;
+            // 
+            // NotesTextBox
+            // 
+            this.NotesTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NotesTextBox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NotesTextBox.Location = new System.Drawing.Point(3, 3);
+            this.NotesTextBox.Name = "NotesTextBox";
+            this.NotesTextBox.Size = new System.Drawing.Size(982, 158);
+            this.NotesTextBox.TabIndex = 0;
+            this.NotesTextBox.Text = "";
+            this.NotesTextBox.TextChanged += new System.EventHandler(this.NotesTextBox_TextChanged);
+            // 
+            // MainHorizontalSplitContainer
+            // 
+            this.MainHorizontalSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.MainHorizontalSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainHorizontalSplitContainer.Location = new System.Drawing.Point(4, 53);
+            this.MainHorizontalSplitContainer.Name = "MainHorizontalSplitContainer";
+            this.MainHorizontalSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // MainHorizontalSplitContainer.Panel1
+            // 
+            this.MainHorizontalSplitContainer.Panel1.Controls.Add(this.TopTableLayout);
+            this.MainHorizontalSplitContainer.Panel1MinSize = 125;
+            // 
+            // MainHorizontalSplitContainer.Panel2
+            // 
+            this.MainHorizontalSplitContainer.Panel2.Controls.Add(this.ProgressNotesView);
+            this.MainHorizontalSplitContainer.Panel2MinSize = 125;
+            this.MainHorizontalSplitContainer.Size = new System.Drawing.Size(1000, 672);
+            this.MainHorizontalSplitContainer.SplitterDistance = 474;
+            this.MainHorizontalSplitContainer.TabIndex = 5;
+            // 
+            // TopTableLayout
+            // 
+            this.TopTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.TopTableLayout.ColumnCount = 2;
+            this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 215F));
+            this.TopTableLayout.Controls.Add(this.ShortcutButtonTable, 1, 0);
+            this.TopTableLayout.Controls.Add(this.OdontogramLayoutPanel, 0, 0);
+            this.TopTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TopTableLayout.Location = new System.Drawing.Point(0, 0);
+            this.TopTableLayout.Name = "TopTableLayout";
+            this.TopTableLayout.RowCount = 1;
+            this.TopTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TopTableLayout.Size = new System.Drawing.Size(996, 470);
+            this.TopTableLayout.TabIndex = 0;
+            // 
+            // OdontogramLayoutPanel
+            // 
+            this.OdontogramLayoutPanel.ColumnCount = 16;
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.25F));
+            this.OdontogramLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OdontogramLayoutPanel.Location = new System.Drawing.Point(4, 4);
+            this.OdontogramLayoutPanel.Name = "OdontogramLayoutPanel";
+            this.OdontogramLayoutPanel.RowCount = 2;
+            this.OdontogramLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.OdontogramLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.OdontogramLayoutPanel.Size = new System.Drawing.Size(772, 462);
+            this.OdontogramLayoutPanel.TabIndex = 4;
             // 
             // treatmentBindingSource
             // 

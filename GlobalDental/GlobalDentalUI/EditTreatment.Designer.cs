@@ -34,6 +34,8 @@
             this.StatusComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ToothNumberTextBox = new System.Windows.Forms.TextBox();
+            this.InvalidText = new System.Windows.Forms.Label();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SaveButton
@@ -89,12 +91,37 @@
             this.ToothNumberTextBox.Text = "N/A";
             this.ToothNumberTextBox.TextChanged += new System.EventHandler(this.ToothNumberTextBox_TextChanged);
             // 
+            // InvalidText
+            // 
+            this.InvalidText.AutoSize = true;
+            this.InvalidText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InvalidText.ForeColor = System.Drawing.Color.Red;
+            this.InvalidText.Location = new System.Drawing.Point(15, 93);
+            this.InvalidText.Name = "InvalidText";
+            this.InvalidText.Size = new System.Drawing.Size(129, 13);
+            this.InvalidText.TabIndex = 9;
+            this.InvalidText.Text = "Invalid Tooth Number";
+            this.InvalidText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.InvalidText.Visible = false;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(18, 130);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteButton.TabIndex = 10;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
             // EditTreatmentWindow
             // 
             this.AcceptButton = this.SaveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(206, 165);
+            this.Controls.Add(this.DeleteButton);
+            this.Controls.Add(this.InvalidText);
             this.Controls.Add(this.ToothNumberTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.StatusComboBox);
@@ -122,5 +149,7 @@
         private System.Windows.Forms.ComboBox StatusComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox ToothNumberTextBox;
+        private System.Windows.Forms.Label InvalidText;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }

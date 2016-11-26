@@ -30,7 +30,17 @@ namespace GlobalDentalUI.Controller
 
             if (gottenPatient != null)
             {
-                Treatment newTreatment = new Treatment(gottenPatient.TreatmentsList.Count + 1, Type, TreatmentSurfaces, Status, toothNumber);
+                int treatmentID;
+                var count = gottenPatient.TreatmentsList.Count;
+                if (count == 0)
+                {
+                    treatmentID = 1;
+                }
+                else
+                {
+                    treatmentID = gottenPatient.TreatmentsList[count - 1].ID + 1;
+                }
+                Treatment newTreatment = new Treatment(treatmentID, Type, TreatmentSurfaces, Status, toothNumber);
                 gottenPatient.TreatmentsList.Add(newTreatment);
                 return newTreatment;
             }
@@ -61,6 +71,20 @@ namespace GlobalDentalUI.Controller
                     Patient.PatientGender = Gender;
                     return true;
                 }
+            }
+
+            return false;
+        }
+
+        public bool DeleteTreatment(int PatientID, int TreatmentID)
+        {
+            var PatientToUpdate = GetPatient(PatientID);
+            var TreatmentToUpdate = GetTreatment(TreatmentID, PatientID);
+
+            if (TreatmentToUpdate != null && PatientToUpdate != null)
+            {
+                PatientToUpdate.TreatmentsList.Remove(TreatmentToUpdate);
+                return true;
             }
 
             return false;

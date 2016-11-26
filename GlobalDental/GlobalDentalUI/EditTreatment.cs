@@ -16,6 +16,7 @@ namespace GlobalDentalUI
             EditingTreatment = DOP.GetTreatment(this.TreatmentID, this.PatientID);
             
             this.DOP = DOP;
+            InvalidText.Visible = false;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -69,6 +70,27 @@ namespace GlobalDentalUI
 
         private void ToothNumberTextBox_TextChanged(object sender, EventArgs e)
         {
+            int enteredNumber;
+
+            try
+            {
+                enteredNumber = Convert.ToInt32(ToothNumberTextBox.Text);
+            }
+            catch (Exception)
+            {
+                enteredNumber = 0;
+            }
+
+            if(enteredNumber < 1 || enteredNumber > 32)
+            {
+                SaveButton.Enabled = false;
+                InvalidText.Visible = true;
+            }
+            else
+            {
+                SaveButton.Enabled = true;
+                InvalidText.Visible = false;
+            }
 
         }
 
@@ -81,6 +103,13 @@ namespace GlobalDentalUI
                 ToothNumberTextBox.ReadOnly = false;
                 ToothNumberTextBox.Enabled = true;
             }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            DOP.DeleteTreatment(PatientID, TreatmentID);
+            MainForm.UpdateTreatmentPlanList();
+            Close();
         }
     }
 }
