@@ -108,7 +108,7 @@ namespace GlobalDentalUI
             PatientSearchResults.Rows.Clear();
             foreach (var Patient in PatientList)
             {
-                PatientSearchResults.Rows.Add(Patient.FirstName, Patient.LastName, Patient.Birthdate.ToLocalTime().ToShortDateString(), Patient.PatientID.ToString());
+                PatientSearchResults.Rows.Add(Patient.LastName, Patient.FirstName, Patient.Birthdate.ToLocalTime().ToShortDateString(), Patient.PatientID.ToString());
             }
 
             foreach (DataGridViewRow Row in PatientSearchResults.Rows)
