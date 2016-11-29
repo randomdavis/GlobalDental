@@ -192,6 +192,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Patient Search";
             this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PatientSearch_FormClosed);
             this.Load += new System.EventHandler(this.PatientSearch_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

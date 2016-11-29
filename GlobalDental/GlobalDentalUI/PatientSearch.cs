@@ -18,6 +18,7 @@ namespace GlobalDentalUI
 
             this.DOP = DOP;
             this.MainForm = MainForm;
+            this.MainForm.Enabled = false;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -84,6 +85,7 @@ namespace GlobalDentalUI
             {
                 MainForm.SetSelectedPatient((int)SelectedPatientID);
                 Close();
+                MainForm.Enabled = true;
             }
             else
             {
@@ -187,6 +189,11 @@ namespace GlobalDentalUI
             {
                 SelectPatientAtRow(e.Row);
             }
+        }
+
+        private void PatientSearch_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainForm.Enabled = true;
         }
     }
 }

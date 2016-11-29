@@ -131,7 +131,7 @@ namespace GlobalDentalUI.Controller
             {
                 if (treatment.ToothNumber != null)
                 {
-                    if (treatment.Status == Treatment.TreatmentStatus.Planned && treatment.ToothNumber == toothNumber)
+                    if ((treatment.Status == Treatment.TreatmentStatus.Existing || treatment.Status == Treatment.TreatmentStatus.Planned) && treatment.ToothNumber == toothNumber)
                     {
                         treatment.Status = Treatment.TreatmentStatus.Completed;
                     }

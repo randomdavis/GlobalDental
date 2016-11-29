@@ -407,7 +407,7 @@ namespace GlobalDentalUI
             {
                 CheckBox cb = (CheckBox)(p.Controls[p.Controls.Count - 1]);
 
-                if (cb.Checked == true)
+                if (cb.Checked)
                 {
                     int toothNumber = Convert.ToInt32(cb.Text);
 
