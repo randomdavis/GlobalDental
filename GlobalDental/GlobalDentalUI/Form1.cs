@@ -463,5 +463,17 @@ namespace GlobalDentalUI
             var SyncDialog = new SyncForm(DOP, this);
             SyncDialog.Show();
         }
+
+        private void logInLogOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var LoginDialog = new LogInForm(DOP, this);
+            LoginDialog.Show();
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+            var RegisterDialog = new RegisterForm(DOP, this);
+            RegisterDialog.Show();
+        }
     }
 }

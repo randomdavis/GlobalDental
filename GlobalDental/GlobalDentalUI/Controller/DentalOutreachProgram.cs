@@ -45,7 +45,7 @@ namespace GlobalDentalUI.Controller
             {
                 var serverPort = 5678;
                 var serverIP = "127.0.0.1";
-                var messageLength = 1024 * 10;
+                var messageLength = 1024 * 100;
                 TcpClient tcpclnt = new TcpClient();
 
                 tcpclnt.Connect(serverIP, serverPort);
@@ -60,7 +60,10 @@ namespace GlobalDentalUI.Controller
                 int k = stm.Read(payloadBytes, 0, messageLength);
                 tcpclnt.Close();
 
-                var payload = encoder.GetString(payloadBytes);
+                byte[] truncatedReceiveBuffer = new byte[k];
+                Array.Copy(payloadBytes, truncatedReceiveBuffer, k);
+
+                var payload = encoder.GetString(truncatedReceiveBuffer);
                 sessionToken = payload.Substring(0, 10);
                 loggedIn = true;
                 if (payload.Length > 10)
@@ -86,7 +89,7 @@ namespace GlobalDentalUI.Controller
             {
                 var serverPort = 5678;
                 var serverIP = "127.0.0.1";
-                var messageLength = 1024 * 10;
+                var messageLength = 1024 * 100;
                 TcpClient tcpclnt = new TcpClient();
 
                 tcpclnt.Connect(serverIP, serverPort);
@@ -101,7 +104,10 @@ namespace GlobalDentalUI.Controller
                 int k = stm.Read(ReceivedBytes, 0, messageLength);
                 tcpclnt.Close();
 
-                var receivedString = encoder.GetString(ReceivedBytes);
+                byte[] truncatedReceiveBuffer = new byte[k];
+                Array.Copy(ReceivedBytes, truncatedReceiveBuffer, k);
+
+                var receivedString = encoder.GetString(truncatedReceiveBuffer);
                 if (receivedString.Substring(0, 4) != "GOOD")
                 {
                     return receivedString;
