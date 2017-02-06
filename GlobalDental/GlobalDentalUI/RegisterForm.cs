@@ -16,5 +16,15 @@ namespace GlobalDentalUI
         {
             InitializeComponent();
         }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

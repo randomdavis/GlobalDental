@@ -44,6 +44,7 @@
             this.CancelButton.TabIndex = 3;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // SyncButton
             // 
@@ -53,6 +54,7 @@
             this.SyncButton.TabIndex = 2;
             this.SyncButton.Text = "Sync";
             this.SyncButton.UseVisualStyleBackColor = true;
+            this.SyncButton.Click += new System.EventHandler(this.SyncButton_Click);
             // 
             // SyncProgressBar
             // 
@@ -75,6 +77,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(465, 218);
             this.Controls.Add(this.SyncProgressLabel);
             this.Controls.Add(this.SyncProgressBar);
@@ -88,6 +91,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Sync With Server";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.SyncForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

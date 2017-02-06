@@ -45,7 +45,7 @@ namespace GlobalDentalUI
             
         }
 
-        private void Create_Odontogram()
+        public void Create_Odontogram()
         {
             OdontogramLayoutPanel.Enabled = true;
             OdontogramLayoutPanel.Controls.Clear();
@@ -199,7 +199,7 @@ namespace GlobalDentalUI
 
         }
 
-        private DentalOutreachProgram DOP { get; set; }
+        public DentalOutreachProgram DOP { get; set; }
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -456,6 +456,12 @@ namespace GlobalDentalUI
         {
             var EditTreatmentDialog = new EditTreatmentWindow(DOP, this, Convert.ToInt32(TreatmentPlanDataTable.Rows[e.RowIndex].Cells["ID"].Value), SelectedPatient.PatientID);
             EditTreatmentDialog.Show();
+        }
+
+        private void syncToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var SyncDialog = new SyncForm(DOP, this);
+            SyncDialog.Show();
         }
     }
 }
