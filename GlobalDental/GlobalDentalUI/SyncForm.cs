@@ -56,6 +56,7 @@ namespace GlobalDentalUI
         private void SyncForm_Load(object sender, EventArgs e)
         {
             SyncProgressBar.Enabled = false;
+            SyncButton.Enabled = DOP.loggedIn;
         }
     }
 }
