@@ -176,7 +176,7 @@ namespace GlobalDentalUI.Controller
                 {
                     treatmentID = gottenPatient.TreatmentsList[count - 1].ID + 1;
                 }
-                Treatment newTreatment = new Treatment(treatmentID, Type, TreatmentSurfaces, Status, toothNumber);
+                Treatment newTreatment = new Treatment(treatmentID, Type, TreatmentSurfaces, Status, DateTime.Now.ToUniversalTime(), toothNumber);
                 gottenPatient.TreatmentsList.Add(newTreatment);
                 return newTreatment;
             }

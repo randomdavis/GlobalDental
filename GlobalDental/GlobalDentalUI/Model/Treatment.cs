@@ -135,10 +135,10 @@ namespace GlobalDentalUI.Model
             return treatmentCode;
         }
 
-        public Treatment(int id, TreatmentType Type, TreatmentSurfaces TreatmentSurfaces, TreatmentStatus Status, int? toothNumber = null)
+        public Treatment(int id, TreatmentType Type, TreatmentSurfaces TreatmentSurfaces, TreatmentStatus Status, DateTime DateAndTime, int? toothNumber = null)
         {
             this.ID = id;
-            DateAndTime = DateTime.Now.ToUniversalTime();
+            this.DateAndTime = DateAndTime;
             this.Type = Type;
 
             if (Type == TreatmentType.Prophylaxis || Type == TreatmentType.Fluoride)
