@@ -4,7 +4,6 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using Newtonsoft.Json;
-using GlobalDentalClasses.Controller;
 using System.IO;
 
 namespace GlobalDentalServer
@@ -19,7 +18,7 @@ namespace GlobalDentalServer
             var clientsFile = "registeredClients.json";
             var DOPsFile = "DOPs.json";
             List<string> validClients = null;
-            Dictionary<string, List<DentalOutreachProgram>> DOPCollections = null;
+            Dictionary<string, string> DOPCollections = null;
 
             try
             {
@@ -35,11 +34,11 @@ namespace GlobalDentalServer
             try
             {
                 var fileContents = System.IO.File.ReadAllText(DOPsFile);
-                DOPCollections = JsonConvert.DeserializeObject<Dictionary<string, List<DentalOutreachProgram>>>(fileContents);
+                DOPCollections = JsonConvert.DeserializeObject<Dictionary<string, string>>(fileContents);
             }
             catch (Exception)
             {
-                DOPCollections = new Dictionary<string, List<DentalOutreachProgram>>();
+                DOPCollections = new Dictionary<string, string>();
                 File.WriteAllText(DOPsFile, JsonConvert.SerializeObject(DOPCollections));
             }
 
@@ -79,8 +78,7 @@ namespace GlobalDentalServer
                     {
                         var ClientID = validSessions[token];
                         var DOPsString = gottenString.Substring(16);
-                        var DeserializedDOPs = JsonConvert.DeserializeObject<List<DentalOutreachProgram>>(DOPsString);
-                        DOPCollections[ClientID] = DeserializedDOPs;
+                        DOPCollections[ClientID] = DOPsString;
                         File.WriteAllText(DOPsFile, JsonConvert.SerializeObject(DOPCollections));
                     }
                 }

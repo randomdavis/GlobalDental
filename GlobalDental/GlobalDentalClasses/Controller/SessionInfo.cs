@@ -53,7 +53,10 @@ namespace GlobalDentalClasses.Controller
                 loggedIn = true;
                 if (payload.Length > 10)
                 {
-                    return JsonConvert.DeserializeObject<List<DentalOutreachProgram>>(payload.Substring(11));
+                    var a = payload.Substring(11);
+                    var b = JsonConvert.DeserializeObject<string>(a);
+                    var c = JsonConvert.DeserializeObject<List<DentalOutreachProgram>>(b);
+                    return c;
                 }
                 else
                 {

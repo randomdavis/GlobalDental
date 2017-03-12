@@ -54,12 +54,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GlobalDentalClasses\GlobalDentalClasses.csproj">
-      <Project>{17b638be-9b80-462f-8c21-842517d5de1a}</Project>
-      <Name>GlobalDentalClasses</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
