@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GlobalDentalUI.Controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +13,16 @@ namespace GlobalDentalUI
 {
     public partial class SyncForm : Form
     {
-        public SyncForm(GlobalDentalUI.Controller.DentalOutreachProgram DOP, MainWindow MainForm)
+        public SyncForm(SessionInfo Session, MainWindow MainForm)
         {
             InitializeComponent();
 
-            this.DOP = DOP;
+            this.Session = Session;
             this.MainForm = MainForm;
         }
 
         private MainWindow MainForm { get; set; }
-        private Controller.DentalOutreachProgram DOP { get; set; }
+        private SessionInfo Session { get; set; }
 
         private void progressBar1_Click(object sender, EventArgs e)
         {
@@ -32,9 +33,9 @@ namespace GlobalDentalUI
         {
             SyncProgressBar.Enabled = true;
             SyncProgressBar.Value = 50;
-            CancelButton.Enabled = false;
-            var syncWorked = DOP.Sync();
-            CancelButton.Enabled = true;
+            Cancel.Enabled = false;
+            var syncWorked = Session.Sync(MainForm.Programs);
+            Cancel.Enabled = true;
             if (syncWorked)
             {
                 SyncProgressBar.Value = 100;
@@ -56,7 +57,7 @@ namespace GlobalDentalUI
         private void SyncForm_Load(object sender, EventArgs e)
         {
             SyncProgressBar.Enabled = false;
-            SyncButton.Enabled = DOP.loggedIn;
+            SyncButton.Enabled = Session.loggedIn;
         }
     }
 }

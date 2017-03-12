@@ -50,11 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\DOPs.cs" />
+    <Compile Include="Controller\SessionInfo.cs" />
     <Compile Include="CreateEditViewPatient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateEditViewPatient.Designer.cs">
       <DependentUpon>CreateEditViewPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOPCreateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOPCreateForm.Designer.cs">
+      <DependentUpon>DOPCreateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DOPSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DOPSelectForm.Designer.cs">
+      <DependentUpon>DOPSelectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EditTreatment.cs">
       <SubType>Form</SubType>
@@ -62,11 +76,11 @@
     <Compile Include="EditTreatment.Designer.cs">
       <DependentUpon>EditTreatment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="LogInForm.cs">
       <SubType>Form</SubType>
@@ -112,11 +126,17 @@
     <EmbeddedResource Include="CreateEditViewPatient.resx">
       <DependentUpon>CreateEditViewPatient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DOPCreateForm.resx">
+      <DependentUpon>DOPCreateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DOPSelectForm.resx">
+      <DependentUpon>DOPSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditTreatment.resx">
       <DependentUpon>EditTreatment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogInForm.resx">
       <DependentUpon>LogInForm.cs</DependentUpon>

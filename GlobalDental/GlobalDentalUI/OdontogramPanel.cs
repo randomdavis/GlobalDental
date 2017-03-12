@@ -8,7 +8,7 @@ namespace GlobalDentalUI
 {
     public partial class OdontogramPanel : UserControl
     {
-        public OdontogramPanel(MainWindow MainForm, DentalOutreachProgram DOP, Patient selectedPatient, int toothNumber)
+        public OdontogramPanel(MainWindow MainForm, Patient selectedPatient, int toothNumber)
         {
             InitializeComponent();
 
@@ -17,14 +17,11 @@ namespace GlobalDentalUI
             this.MainForm = MainForm;
             ToothNumber = toothNumber;
             ResizeRedraw = true;
-            this.DOP = DOP;
             SelectedPatient = selectedPatient;
         }
 
         private MainWindow MainForm { get; set; }
         private int ToothNumber { get; set; }
-
-        private DentalOutreachProgram DOP { get; set; }
 
         private Patient SelectedPatient { get; set; }
 

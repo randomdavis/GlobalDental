@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SyncForm));
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.Cancel = new System.Windows.Forms.Button();
             this.SyncButton = new System.Windows.Forms.Button();
             this.SyncProgressBar = new System.Windows.Forms.ProgressBar();
             this.SyncProgressLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // CancelButton
+            // Cancel
             // 
-            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(12, 183);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 3;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Cancel.Location = new System.Drawing.Point(12, 183);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(75, 23);
+            this.Cancel.TabIndex = 3;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // SyncButton
             // 
@@ -77,11 +77,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.CancelButton;
             this.ClientSize = new System.Drawing.Size(465, 218);
             this.Controls.Add(this.SyncProgressLabel);
             this.Controls.Add(this.SyncProgressBar);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.Cancel);
             this.Controls.Add(this.SyncButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -89,6 +88,7 @@
             this.MinimizeBox = false;
             this.Name = "SyncForm";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sync With Server";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.SyncForm_Load);
@@ -99,7 +99,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button SyncButton;
         private System.Windows.Forms.ProgressBar SyncProgressBar;
         private System.Windows.Forms.Label SyncProgressLabel;

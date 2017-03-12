@@ -30,16 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newPatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectPatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createDentalOutreachProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectDentalOutreachProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editPatientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerButton = new System.Windows.Forms.ToolStripMenuItem();
             this.logInLogOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.syncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeChartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ShortcutToolStrip = new System.Windows.Forms.ToolStrip();
             this.ShortcutButtonTable = new System.Windows.Forms.TableLayoutPanel();
@@ -71,7 +72,7 @@
             this.TopTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.OdontogramLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.treatmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.MainMenuStrip.SuspendLayout();
+            this.MainMenu.SuspendLayout();
             this.ShortcutButtonTable.SuspendLayout();
             this.ShortcutTinyTable2.SuspendLayout();
             this.ShortcutTinyTable1.SuspendLayout();
@@ -87,27 +88,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.treatmentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // MainMenuStrip
+            // MainMenu
             // 
-            this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
-            this.MainMenuStrip.Location = new System.Drawing.Point(4, 4);
-            this.MainMenuStrip.Name = "MainMenuStrip";
-            this.MainMenuStrip.Size = new System.Drawing.Size(1000, 24);
-            this.MainMenuStrip.TabIndex = 0;
-            this.MainMenuStrip.Text = "menuStrip1";
+            this.MainMenu.Location = new System.Drawing.Point(4, 4);
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(1000, 24);
+            this.MainMenu.TabIndex = 0;
+            this.MainMenu.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newPatientToolStripMenuItem,
             this.selectPatientToolStripMenuItem,
-            this.exportDataToolStripMenuItem,
+            this.createDentalOutreachProgramToolStripMenuItem,
+            this.selectDentalOutreachProgramToolStripMenuItem,
             this.editPatientToolStripMenuItem,
             this.registerButton,
             this.logInLogOutToolStripMenuItem,
+            this.logOutToolStripMenuItem,
             this.syncToolStripMenuItem,
-            this.closeChartToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -116,62 +118,70 @@
             // newPatientToolStripMenuItem
             // 
             this.newPatientToolStripMenuItem.Name = "newPatientToolStripMenuItem";
-            this.newPatientToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.newPatientToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.newPatientToolStripMenuItem.Text = "New Patient...";
             this.newPatientToolStripMenuItem.Click += new System.EventHandler(this.newPatientToolStripMenuItem_Click);
             // 
             // selectPatientToolStripMenuItem
             // 
             this.selectPatientToolStripMenuItem.Name = "selectPatientToolStripMenuItem";
-            this.selectPatientToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.selectPatientToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.selectPatientToolStripMenuItem.Text = "Select Patient...";
             this.selectPatientToolStripMenuItem.Click += new System.EventHandler(this.selectPatientToolStripMenuItem_Click);
             // 
-            // exportDataToolStripMenuItem
+            // createDentalOutreachProgramToolStripMenuItem
             // 
-            this.exportDataToolStripMenuItem.Name = "exportDataToolStripMenuItem";
-            this.exportDataToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.exportDataToolStripMenuItem.Text = "Export Data...";
+            this.createDentalOutreachProgramToolStripMenuItem.Name = "createDentalOutreachProgramToolStripMenuItem";
+            this.createDentalOutreachProgramToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.createDentalOutreachProgramToolStripMenuItem.Text = "New Dental Outreach Program...";
+            this.createDentalOutreachProgramToolStripMenuItem.Click += new System.EventHandler(this.createDentalOutreachProgramToolStripMenuItem_Click);
+            // 
+            // selectDentalOutreachProgramToolStripMenuItem
+            // 
+            this.selectDentalOutreachProgramToolStripMenuItem.Name = "selectDentalOutreachProgramToolStripMenuItem";
+            this.selectDentalOutreachProgramToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.selectDentalOutreachProgramToolStripMenuItem.Text = "Select Dental Outreach Program...";
+            this.selectDentalOutreachProgramToolStripMenuItem.Click += new System.EventHandler(this.selectDentalOutreachProgramToolStripMenuItem_Click);
             // 
             // editPatientToolStripMenuItem
             // 
             this.editPatientToolStripMenuItem.Name = "editPatientToolStripMenuItem";
-            this.editPatientToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.editPatientToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.editPatientToolStripMenuItem.Text = "View/Edit Patient...";
             this.editPatientToolStripMenuItem.Click += new System.EventHandler(this.editPatientToolStripMenuItem_Click);
             // 
             // registerButton
             // 
             this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(173, 22);
-            this.registerButton.Text = "Register";
+            this.registerButton.Size = new System.Drawing.Size(252, 22);
+            this.registerButton.Text = "Register...";
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
             // logInLogOutToolStripMenuItem
             // 
             this.logInLogOutToolStripMenuItem.Name = "logInLogOutToolStripMenuItem";
-            this.logInLogOutToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.logInLogOutToolStripMenuItem.Text = "Log In/Log Out...";
+            this.logInLogOutToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.logInLogOutToolStripMenuItem.Text = "Log In...";
             this.logInLogOutToolStripMenuItem.Click += new System.EventHandler(this.logInLogOutToolStripMenuItem_Click);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // syncToolStripMenuItem
             // 
             this.syncToolStripMenuItem.Name = "syncToolStripMenuItem";
-            this.syncToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.syncToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.syncToolStripMenuItem.Text = "Sync...";
             this.syncToolStripMenuItem.Click += new System.EventHandler(this.syncToolStripMenuItem_Click);
-            // 
-            // closeChartToolStripMenuItem
-            // 
-            this.closeChartToolStripMenuItem.Name = "closeChartToolStripMenuItem";
-            this.closeChartToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.closeChartToolStripMenuItem.Text = "Close Chart";
-            this.closeChartToolStripMenuItem.Click += new System.EventHandler(this.closeChartToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -200,7 +210,7 @@
             this.ShortcutButtonTable.Controls.Add(this.CompositeButton, 1, 1);
             this.ShortcutButtonTable.Dock = System.Windows.Forms.DockStyle.Top;
             this.ShortcutButtonTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.ShortcutButtonTable.Location = new System.Drawing.Point(778, 4);
+            this.ShortcutButtonTable.Location = new System.Drawing.Point(763, 4);
             this.ShortcutButtonTable.MinimumSize = new System.Drawing.Size(0, 150);
             this.ShortcutButtonTable.Name = "ShortcutButtonTable";
             this.ShortcutButtonTable.RowCount = 4;
@@ -208,7 +218,7 @@
             this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.ShortcutButtonTable.Size = new System.Drawing.Size(214, 150);
+            this.ShortcutButtonTable.Size = new System.Drawing.Size(229, 150);
             this.ShortcutButtonTable.TabIndex = 3;
             // 
             // ProphyButton
@@ -216,11 +226,11 @@
             this.ProphyButton.AutoSize = true;
             this.ProphyButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ProphyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProphyButton.Location = new System.Drawing.Point(110, 114);
+            this.ProphyButton.Location = new System.Drawing.Point(117, 114);
             this.ProphyButton.Name = "ProphyButton";
-            this.ProphyButton.Size = new System.Drawing.Size(101, 33);
+            this.ProphyButton.Size = new System.Drawing.Size(109, 33);
             this.ProphyButton.TabIndex = 7;
-            this.ProphyButton.Text = "Pro";
+            this.ProphyButton.Text = "PRO (Prophylaxis)";
             this.ProphyButton.UseVisualStyleBackColor = true;
             this.ProphyButton.Click += new System.EventHandler(this.ProphyButton_Click);
             // 
@@ -234,12 +244,12 @@
             this.ShortcutTinyTable2.Controls.Add(this.CompleteButton, 0, 0);
             this.ShortcutTinyTable2.Controls.Add(this.MissingButton, 1, 0);
             this.ShortcutTinyTable2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ShortcutTinyTable2.Location = new System.Drawing.Point(107, 0);
+            this.ShortcutTinyTable2.Location = new System.Drawing.Point(114, 0);
             this.ShortcutTinyTable2.Margin = new System.Windows.Forms.Padding(0);
             this.ShortcutTinyTable2.Name = "ShortcutTinyTable2";
             this.ShortcutTinyTable2.RowCount = 1;
             this.ShortcutTinyTable2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ShortcutTinyTable2.Size = new System.Drawing.Size(107, 37);
+            this.ShortcutTinyTable2.Size = new System.Drawing.Size(115, 37);
             this.ShortcutTinyTable2.TabIndex = 1;
             // 
             // CompleteButton
@@ -249,7 +259,7 @@
             this.CompleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CompleteButton.Location = new System.Drawing.Point(3, 3);
             this.CompleteButton.Name = "CompleteButton";
-            this.CompleteButton.Size = new System.Drawing.Size(47, 31);
+            this.CompleteButton.Size = new System.Drawing.Size(51, 31);
             this.CompleteButton.TabIndex = 2;
             this.CompleteButton.Text = "C";
             this.CompleteButton.UseVisualStyleBackColor = true;
@@ -260,9 +270,9 @@
             this.MissingButton.AutoSize = true;
             this.MissingButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.MissingButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MissingButton.Location = new System.Drawing.Point(56, 3);
+            this.MissingButton.Location = new System.Drawing.Point(60, 3);
             this.MissingButton.Name = "MissingButton";
-            this.MissingButton.Size = new System.Drawing.Size(48, 31);
+            this.MissingButton.Size = new System.Drawing.Size(52, 31);
             this.MissingButton.TabIndex = 3;
             this.MissingButton.Text = "M";
             this.MissingButton.UseVisualStyleBackColor = true;
@@ -275,9 +285,9 @@
             this.FluorideButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FluorideButton.Location = new System.Drawing.Point(3, 114);
             this.FluorideButton.Name = "FluorideButton";
-            this.FluorideButton.Size = new System.Drawing.Size(101, 33);
+            this.FluorideButton.Size = new System.Drawing.Size(108, 33);
             this.FluorideButton.TabIndex = 6;
-            this.FluorideButton.Text = "FL";
+            this.FluorideButton.Text = "FL (Fluoride)";
             this.FluorideButton.UseVisualStyleBackColor = true;
             this.FluorideButton.Click += new System.EventHandler(this.FluorideButton_Click);
             // 
@@ -296,7 +306,7 @@
             this.ShortcutTinyTable1.Name = "ShortcutTinyTable1";
             this.ShortcutTinyTable1.RowCount = 1;
             this.ShortcutTinyTable1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ShortcutTinyTable1.Size = new System.Drawing.Size(107, 37);
+            this.ShortcutTinyTable1.Size = new System.Drawing.Size(114, 37);
             this.ShortcutTinyTable1.TabIndex = 0;
             // 
             // TreatmentPlanButton
@@ -307,7 +317,7 @@
             this.TreatmentPlanButton.Enabled = false;
             this.TreatmentPlanButton.Location = new System.Drawing.Point(3, 3);
             this.TreatmentPlanButton.Name = "TreatmentPlanButton";
-            this.TreatmentPlanButton.Size = new System.Drawing.Size(47, 31);
+            this.TreatmentPlanButton.Size = new System.Drawing.Size(51, 31);
             this.TreatmentPlanButton.TabIndex = 0;
             this.TreatmentPlanButton.Text = "TX";
             this.TreatmentPlanButton.UseVisualStyleBackColor = true;
@@ -317,9 +327,9 @@
             this.ExistingOtherButton.AutoSize = true;
             this.ExistingOtherButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ExistingOtherButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ExistingOtherButton.Location = new System.Drawing.Point(56, 3);
+            this.ExistingOtherButton.Location = new System.Drawing.Point(60, 3);
             this.ExistingOtherButton.Name = "ExistingOtherButton";
-            this.ExistingOtherButton.Size = new System.Drawing.Size(48, 31);
+            this.ExistingOtherButton.Size = new System.Drawing.Size(51, 31);
             this.ExistingOtherButton.TabIndex = 1;
             this.ExistingOtherButton.Text = "EO";
             this.ExistingOtherButton.UseVisualStyleBackColor = true;
@@ -330,9 +340,9 @@
             this.SealantsButton.AutoSize = true;
             this.SealantsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SealantsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SealantsButton.Location = new System.Drawing.Point(110, 77);
+            this.SealantsButton.Location = new System.Drawing.Point(117, 77);
             this.SealantsButton.Name = "SealantsButton";
-            this.SealantsButton.Size = new System.Drawing.Size(101, 31);
+            this.SealantsButton.Size = new System.Drawing.Size(109, 31);
             this.SealantsButton.TabIndex = 5;
             this.SealantsButton.Text = "Sealants";
             this.SealantsButton.UseVisualStyleBackColor = true;
@@ -345,7 +355,7 @@
             this.AmalgamButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AmalgamButton.Location = new System.Drawing.Point(3, 40);
             this.AmalgamButton.Name = "AmalgamButton";
-            this.AmalgamButton.Size = new System.Drawing.Size(101, 31);
+            this.AmalgamButton.Size = new System.Drawing.Size(108, 31);
             this.AmalgamButton.TabIndex = 2;
             this.AmalgamButton.Text = "Amalgam";
             this.AmalgamButton.UseVisualStyleBackColor = true;
@@ -358,9 +368,9 @@
             this.ExtractionButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ExtractionButton.Location = new System.Drawing.Point(3, 77);
             this.ExtractionButton.Name = "ExtractionButton";
-            this.ExtractionButton.Size = new System.Drawing.Size(101, 31);
+            this.ExtractionButton.Size = new System.Drawing.Size(108, 31);
             this.ExtractionButton.TabIndex = 4;
-            this.ExtractionButton.Text = "exo";
+            this.ExtractionButton.Text = "EXO (Extraction)";
             this.ExtractionButton.UseVisualStyleBackColor = true;
             this.ExtractionButton.Click += new System.EventHandler(this.ExtractionButton_Click);
             // 
@@ -369,9 +379,9 @@
             this.CompositeButton.AutoSize = true;
             this.CompositeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CompositeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CompositeButton.Location = new System.Drawing.Point(110, 40);
+            this.CompositeButton.Location = new System.Drawing.Point(117, 40);
             this.CompositeButton.Name = "CompositeButton";
-            this.CompositeButton.Size = new System.Drawing.Size(101, 31);
+            this.CompositeButton.Size = new System.Drawing.Size(109, 31);
             this.CompositeButton.TabIndex = 3;
             this.CompositeButton.Text = "Composite";
             this.CompositeButton.UseVisualStyleBackColor = true;
@@ -525,7 +535,7 @@
             this.TopTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.TopTableLayout.ColumnCount = 2;
             this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 235F));
             this.TopTableLayout.Controls.Add(this.ShortcutButtonTable, 1, 0);
             this.TopTableLayout.Controls.Add(this.OdontogramLayoutPanel, 0, 0);
             this.TopTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -561,7 +571,7 @@
             this.OdontogramLayoutPanel.RowCount = 2;
             this.OdontogramLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.OdontogramLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.OdontogramLayoutPanel.Size = new System.Drawing.Size(767, 462);
+            this.OdontogramLayoutPanel.Size = new System.Drawing.Size(752, 462);
             this.OdontogramLayoutPanel.TabIndex = 4;
             // 
             // treatmentBindingSource
@@ -575,18 +585,18 @@
             this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.MainHorizontalSplitContainer);
             this.Controls.Add(this.ShortcutToolStrip);
-            this.Controls.Add(this.MainMenuStrip);
+            this.Controls.Add(this.MainMenu);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 768);
             this.Name = "MainWindow";
             this.Padding = new System.Windows.Forms.Padding(4);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Global Dental © 2016 Random Davis";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.MainMenuStrip.ResumeLayout(false);
-            this.MainMenuStrip.PerformLayout();
+            this.MainMenu.ResumeLayout(false);
+            this.MainMenu.PerformLayout();
             this.ShortcutButtonTable.ResumeLayout(false);
             this.ShortcutButtonTable.PerformLayout();
             this.ShortcutTinyTable2.ResumeLayout(false);
@@ -611,15 +621,13 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip MainMenuStrip;
+        private System.Windows.Forms.MenuStrip MainMenu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newPatientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectPatientToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editPatientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logInLogOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem syncToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closeChartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStrip ShortcutToolStrip;
         private System.Windows.Forms.TabControl ProgressNotesView;
@@ -652,6 +660,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DescriptionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
         private System.Windows.Forms.ToolStripMenuItem registerButton;
+        private System.Windows.Forms.ToolStripMenuItem createDentalOutreachProgramToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectDentalOutreachProgramToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
     }
 }
 

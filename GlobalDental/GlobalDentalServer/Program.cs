@@ -21,7 +21,7 @@ namespace GlobalDentalServer
             var clientsFile = "registeredClients.json";
             var DOPsFile = "DOPs.json";
             List<string> validClients = null;
-            Dictionary<string, DentalOutreachProgram> DOPs = null;
+            Dictionary<string, List<DentalOutreachProgram>> DOPCollections = null;
 
             try
             {
@@ -37,12 +37,12 @@ namespace GlobalDentalServer
             try
             {
                 var fileContents = System.IO.File.ReadAllText(DOPsFile);
-                DOPs = JsonConvert.DeserializeObject<Dictionary<string, DentalOutreachProgram>>(fileContents);
+                DOPCollections = JsonConvert.DeserializeObject<Dictionary<string, List<DentalOutreachProgram>>>(fileContents);
             }
             catch (Exception)
             {
-                DOPs = new Dictionary<string, DentalOutreachProgram>();
-                File.WriteAllText(DOPsFile, JsonConvert.SerializeObject(DOPs));
+                DOPCollections = new Dictionary<string, List<DentalOutreachProgram>>();
+                File.WriteAllText(DOPsFile, JsonConvert.SerializeObject(DOPCollections));
             }
 
             var validSessions = new Dictionary<string, string>();
@@ -80,10 +80,10 @@ namespace GlobalDentalServer
                     if (validSessions.ContainsKey(token))
                     {
                         var ClientID = validSessions[token];
-                        var DOPString = gottenString.Substring(16);
-                        var DOP = JsonConvert.DeserializeObject<DentalOutreachProgram>(DOPString);
-                        DOPs[ClientID] = DOP;
-                        File.WriteAllText(DOPsFile, JsonConvert.SerializeObject(DOPs));
+                        var DOPsString = gottenString.Substring(16);
+                        var DeserializedDOPs = JsonConvert.DeserializeObject<List<DentalOutreachProgram>>(DOPsString);
+                        DOPCollections[ClientID] = DeserializedDOPs;
+                        File.WriteAllText(DOPsFile, JsonConvert.SerializeObject(DOPCollections));
                     }
                 }
                 else if(messageType == "LOGN")
@@ -93,11 +93,11 @@ namespace GlobalDentalServer
                     {
                         var token = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 10);
                         validSessions[token] = clientID;
-                        if (DOPs.ContainsKey(clientID))
+                        if (DOPCollections.ContainsKey(clientID))
                         {
-                            var DOP = DOPs[clientID];
-                            var DOPJSON = DOP.getSerializedJSON();
-                            clientSocket.Send(encoder.GetBytes(token + ":" + DOPJSON));
+                            var DOPs = DOPCollections[clientID];
+                            var DOPsJSON = JsonConvert.SerializeObject(DOPs);
+                            clientSocket.Send(encoder.GetBytes(token + ":" + DOPsJSON));
                         }
                         else
                         {

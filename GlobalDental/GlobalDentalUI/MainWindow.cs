@@ -12,59 +12,63 @@ namespace GlobalDentalUI
             Title = "Global Dental © 2016 Random Davis";
             InitializeComponent();
 
-            DOP = new DentalOutreachProgram();
-
-            try
-            {
-                DOP = DOP.Deserialize();
-                DOP.loggedIn = false;
-                DOP.sessionToken = "";
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                DOP = new DentalOutreachProgram();
-                DOP.loggedIn = false;
-                DOP.sessionToken = null;
-                DOP.Serialize();
-            }
+            CurrentDOP = null;
+            Programs = new DOPs();
+            Session = new SessionInfo();
 
             SelectedPatient = null;
             Text = Title;
             editPatientToolStripMenuItem.Enabled = false;
             ProgressNotesView.Enabled = false;
-            closeChartToolStripMenuItem.Enabled = false;
-            exportDataToolStripMenuItem.Enabled = false;
             OdontogramLayoutPanel.Enabled = false;
             ShortcutButtonTable.Enabled = false;
+            newPatientToolStripMenuItem.Enabled = false;
+            selectPatientToolStripMenuItem.Enabled = false;
+            logOutToolStripMenuItem.Enabled = Session.loggedIn;
 
             Create_Odontogram();
             OdontogramLayoutPanel.Enabled = false;
-            
         }
 
-        private void generateTestData()
+        public void setCurrentDOP(DentalOutreachProgram DOP)
         {
-            Model.Patient testpatient = DOP.AddPatient(DateTime.Now, "Johnny", "Appleseed", "Oregon", "USA", Model.Patient.Gender.Male);
-            DOP.AddPatient(DateTime.Now, "Tom",   "Peters", "Jefferton",     "USA", Model.Patient.Gender.Male);
-            DOP.AddPatient(DateTime.Now, "Tommy", "Wiseau", "San Francisco", "USA", Model.Patient.Gender.Male);
-            DOP.AddPatient(DateTime.Now, "Lisa",  "Wiseau", "San Francisco", "USA", Model.Patient.Gender.Female);
-            DOP.AddTreatment(testpatient.PatientID, Model.Treatment.TreatmentType.Amalgam, new Model.Treatment.TreatmentSurfaces(false, true, false, true, false, true), Model.Treatment.TreatmentStatus.Planned, 15);
-            DOP.AddTreatment(testpatient.PatientID, Model.Treatment.TreatmentType.Composite, new Model.Treatment.TreatmentSurfaces(false, false, true, false, true, false), Model.Treatment.TreatmentStatus.Planned, 4);
+            Enabled = false;
+            CurrentDOP = DOP;
+            newPatientToolStripMenuItem.Enabled = true;
+            selectPatientToolStripMenuItem.Enabled = true;
+            DeselectPatient();
+            Enabled = true;
+        }
+
+        public void unsetCurrentDOP()
+        {
+            Enabled = false;
+            CurrentDOP = null;
+            newPatientToolStripMenuItem.Enabled = false;
+            selectPatientToolStripMenuItem.Enabled = false;
+            DeselectPatient();
+            Enabled = true;
         }
 
         public void Create_Odontogram()
         {
-            OdontogramLayoutPanel.Enabled = true;
-            OdontogramLayoutPanel.Controls.Clear();
+            if(CurrentDOP != null)
+            {
+                OdontogramLayoutPanel.Enabled = true;
+                OdontogramLayoutPanel.Controls.Clear();
 
-            for (int i = 1; i <= 16; i++)
-            {
-                OdontogramLayoutPanel.Controls.Add(ToothPanel(i));
+                for (int i = 1; i <= 16; i++)
+                {
+                    OdontogramLayoutPanel.Controls.Add(ToothPanel(i));
+                }
+                for (int i = 32; i >= 17; i--)
+                {
+                    OdontogramLayoutPanel.Controls.Add(ToothPanel(i));
+                }
             }
-            for (int i = 32; i >= 17; i--)
+            else
             {
-                OdontogramLayoutPanel.Controls.Add(ToothPanel(i));
+
             }
         }
 
@@ -76,7 +80,7 @@ namespace GlobalDentalUI
             checkBox.Text = number.ToString();
             checkBox.Dock = DockStyle.Top;
 
-            newPanel.Controls.Add(new OdontogramPanel(this, DOP, SelectedPatient, number));
+            newPanel.Controls.Add(new OdontogramPanel(this, SelectedPatient, number));
 
             newPanel.Controls.Add(checkBox);
 
@@ -85,7 +89,7 @@ namespace GlobalDentalUI
 
         private void newPatientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var CreatePatientDialog = new CreateEditViewPatient(DOP, this);
+            var CreatePatientDialog = new CreateEditViewPatient(CurrentDOP, this);
             CreatePatientDialog.Show();
         }
 
@@ -139,7 +143,9 @@ namespace GlobalDentalUI
 
         }
 
-        public DentalOutreachProgram DOP { get; set; }
+        public SessionInfo Session { get; set; }
+        public DOPs Programs { get; set; }
+        public DentalOutreachProgram CurrentDOP { get; set; }
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -148,7 +154,8 @@ namespace GlobalDentalUI
 
         private void selectPatientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var SelectPatientDialog = new PatientSearch(DOP, this);
+
+            var SelectPatientDialog = new PatientSearch(CurrentDOP, this);
             SelectPatientDialog.Show();
         }
 
@@ -194,7 +201,6 @@ namespace GlobalDentalUI
             UpdateTreatmentPlanList();
             editPatientToolStripMenuItem.Enabled = false;
             ProgressNotesView.Enabled = false;
-            closeChartToolStripMenuItem.Enabled = false;
             Create_Odontogram();
             OdontogramLayoutPanel.Enabled = false;
             ShortcutButtonTable.Enabled = false;
@@ -203,7 +209,7 @@ namespace GlobalDentalUI
 
         public void SetSelectedPatient(int ID)
         {
-            SelectedPatient = DOP.GetPatient(ID);
+            SelectedPatient = CurrentDOP.GetPatient(ID);
             Text = Title + " - Patient " + SelectedPatient.LastName + ", " + SelectedPatient.FirstName + " (" + SelectedPatient.PatientID.ToString() + ")";
             editPatientToolStripMenuItem.Enabled = true;
             ProgressNotesView.Enabled = true;
@@ -217,7 +223,7 @@ namespace GlobalDentalUI
 
         private void editPatientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var CreatePatientDialog = new CreateEditViewPatient(DOP, this, SelectedPatient.PatientID);
+            var CreatePatientDialog = new CreateEditViewPatient(CurrentDOP, this, SelectedPatient.PatientID);
             CreatePatientDialog.Show();
         }
 
@@ -236,7 +242,7 @@ namespace GlobalDentalUI
                 {
                     cb.Checked = false;
                     int toothNumber = Convert.ToInt32(cb.Text);
-                    DOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Extraction, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Existing, toothNumber);
+                    CurrentDOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Extraction, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Existing, toothNumber);
                 }
 
                 i++;
@@ -254,7 +260,7 @@ namespace GlobalDentalUI
 
         private void FluorideButton_Click(object sender, EventArgs e)
         {
-            DOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Fluoride, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, 0);
+            CurrentDOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Fluoride, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, 0);
             foreach (Panel p in OdontogramLayoutPanel.Controls)
             {
                 CheckBox cb = (CheckBox)(p.Controls[p.Controls.Count - 1]);
@@ -268,7 +274,7 @@ namespace GlobalDentalUI
 
         private void ProphyButton_Click(object sender, EventArgs e)
         {
-            DOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Prophylaxis, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, 0);
+            CurrentDOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Prophylaxis, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, 0);
             foreach (Panel p in OdontogramLayoutPanel.Controls)
             {
                 CheckBox cb = (CheckBox)(p.Controls[p.Controls.Count - 1]);
@@ -289,7 +295,7 @@ namespace GlobalDentalUI
                 if (cb.Checked == true)
                 {
                     int toothNumber = Convert.ToInt32(cb.Text);
-                    DOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Extraction, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, toothNumber);
+                    CurrentDOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Extraction, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, toothNumber);
                     cb.Checked = false;
                 }
             }
@@ -316,7 +322,7 @@ namespace GlobalDentalUI
                     if (cb.Checked == true)
                     {
                         int toothNumber = Convert.ToInt32(cb.Text);
-                        DOP.AddTreatment(SelectedPatient.PatientID, Type, selectedSurfaces, Model.Treatment.TreatmentStatus.Planned, toothNumber);
+                        CurrentDOP.AddTreatment(SelectedPatient.PatientID, Type, selectedSurfaces, Model.Treatment.TreatmentStatus.Planned, toothNumber);
                         cb.Checked = false;
                     }
                 }
@@ -350,7 +356,7 @@ namespace GlobalDentalUI
                 {
                     int toothNumber = Convert.ToInt32(cb.Text);
 
-                    DOP.CompleteTreatmentsOnTooth(SelectedPatient.PatientID, toothNumber);
+                    CurrentDOP.CompleteTreatmentsOnTooth(SelectedPatient.PatientID, toothNumber);
 
                     cb.Checked = false;
                 }
@@ -368,7 +374,7 @@ namespace GlobalDentalUI
                 {
                     int toothNumber = Convert.ToInt32(cb.Text);
 
-                    DOP.ExistingOtherOnTooth(SelectedPatient.PatientID, toothNumber);
+                    CurrentDOP.ExistingOtherOnTooth(SelectedPatient.PatientID, toothNumber);
 
                     cb.Checked = false;
                 }
@@ -378,10 +384,10 @@ namespace GlobalDentalUI
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DOP.loggedIn = false;
-            DOP.sessionToken = null;
-            DOP.Serialize();
-
+            if(Programs != null)
+            {
+                Programs.Serialize();
+            }
         }
 
         private void TreatmentPlanDataTable_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
@@ -396,28 +402,50 @@ namespace GlobalDentalUI
 
         private void TreatmentPlanDataTable_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var EditTreatmentDialog = new EditTreatmentWindow(DOP, this, Convert.ToInt32(TreatmentPlanDataTable.Rows[e.RowIndex].Cells["ID"].Value), SelectedPatient.PatientID);
+            var EditTreatmentDialog = new EditTreatmentWindow(CurrentDOP, this, Convert.ToInt32(TreatmentPlanDataTable.Rows[e.RowIndex].Cells["ID"].Value), SelectedPatient.PatientID);
             EditTreatmentDialog.Show();
         }
 
         private void syncToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var SyncDialog = new SyncForm(DOP, this);
+            var SyncDialog = new SyncForm(Session, this);
             SyncDialog.Show();
+        }
+
+        public void updateLoginButtons()
+        {
+            logOutToolStripMenuItem.Enabled = Session.loggedIn;
+            logInLogOutToolStripMenuItem.Enabled = !Session.loggedIn;
         }
 
         private void logInLogOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var LoginDialog = new LogInForm(DOP, this);
+            var LoginDialog = new LogInForm(Session, this);
             LoginDialog.Show();
-
         }
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            var RegisterDialog = new RegisterForm(DOP, this);
+            var RegisterDialog = new RegisterForm(Session, this);
             RegisterDialog.Show();
+        }
 
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Session.LogOut();
+            updateLoginButtons();
+        }
+
+        private void selectDentalOutreachProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var DOPSelectDialog = new DOPSelectForm(this);
+            DOPSelectDialog.Show();
+        }
+
+        private void createDentalOutreachProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var DOPCreateDialog = new DOPCreateForm(this);
+            DOPCreateDialog.Show();
         }
     }
 }

@@ -13,26 +13,28 @@ namespace GlobalDentalUI
 {
     public partial class LogInForm : Form
     {
-        public LogInForm(DentalOutreachProgram DOP, MainWindow MainForm)
+        public LogInForm(SessionInfo Session, MainWindow MainForm)
         {
             InitializeComponent();
-            this.DOP = DOP;
+            this.Session = Session;
             this.MainForm = MainForm;
         }
 
-        public DentalOutreachProgram DOP { get; set; }
+        public SessionInfo Session { get; set; }
         public MainWindow MainForm { get; set; }
 
         private void LogInButton_Click(object sender, EventArgs e)
         {
             var email = emailTextBox.Text;
-            var LoginResult = DOP.LogIn(email);
+            var LoginResult = Session.LogIn(email);
             if (LoginResult != null)
             {
+                MainForm.updateLoginButtons();
                 DialogResult dialogResult = MessageBox.Show("Do you want to use the server's stored data?", "Login Successful", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    MainForm.DOP = LoginResult;
+                    MainForm.Programs.Programs = LoginResult;
+                    MainForm.unsetCurrentDOP();
                     MainForm.Create_Odontogram();
                     Close();
                 }

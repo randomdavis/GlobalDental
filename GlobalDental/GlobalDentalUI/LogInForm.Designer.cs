@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogInForm));
             this.label1 = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.Cancel = new System.Windows.Forms.Button();
             this.LogInButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -52,16 +52,16 @@
             this.emailTextBox.TabIndex = 8;
             this.emailTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // CancelButton
+            // Cancel
             // 
-            this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(55, 99);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
-            this.CancelButton.TabIndex = 13;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
+            this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Cancel.Location = new System.Drawing.Point(55, 99);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(75, 23);
+            this.Cancel.TabIndex = 13;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // LogInButton
             // 
@@ -79,7 +79,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(223, 134);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.Cancel);
             this.Controls.Add(this.LogInButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.emailTextBox);
@@ -89,6 +89,7 @@
             this.MinimizeBox = false;
             this.Name = "LogInForm";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log In";
             this.TopMost = true;
             this.ResumeLayout(false);
@@ -99,7 +100,7 @@
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button LogInButton;
     }
 }

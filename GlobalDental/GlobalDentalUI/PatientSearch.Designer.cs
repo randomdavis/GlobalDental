@@ -191,6 +191,7 @@
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "PatientSearch";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Patient Search";
             this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PatientSearch_FormClosed);
