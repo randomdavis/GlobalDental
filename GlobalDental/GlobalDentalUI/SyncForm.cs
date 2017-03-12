@@ -33,13 +33,11 @@ namespace GlobalDentalUI
             SyncProgressBar.Enabled = true;
             SyncProgressBar.Value = 50;
             CancelButton.Enabled = false;
-            var gottenDOP = DOP.Sync();
+            var syncWorked = DOP.Sync();
             CancelButton.Enabled = true;
-            if (gottenDOP != null)
+            if (syncWorked)
             {
                 SyncProgressBar.Value = 100;
-                MainForm.DOP = gottenDOP;
-                MainForm.Create_Odontogram();
                 MessageBox.Show("Sync Complete");
             }
             else
@@ -58,6 +56,7 @@ namespace GlobalDentalUI
         private void SyncForm_Load(object sender, EventArgs e)
         {
             SyncProgressBar.Enabled = false;
+            SyncButton.Enabled = DOP.loggedIn;
         }
     }
 }

@@ -34,6 +34,7 @@ namespace GlobalDentalUI
                 {
                     MainForm.DOP = LoginResult;
                     MainForm.Create_Odontogram();
+                    Close();
                 }
                 else if (dialogResult == DialogResult.No)
                 {
