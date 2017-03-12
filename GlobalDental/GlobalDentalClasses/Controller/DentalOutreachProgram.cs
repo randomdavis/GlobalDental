@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using GlobalDentalUI.Model;
-using Newtonsoft.Json;
-using System.Net.Sockets;
-using System.IO;
-using System.Text;
+using GlobalDentalClasses.Model;
 
-namespace GlobalDentalUI.Controller
+namespace GlobalDentalClasses.Controller
 {
     public class DentalOutreachProgram
     {

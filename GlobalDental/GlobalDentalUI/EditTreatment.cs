@@ -1,5 +1,5 @@
-﻿using GlobalDentalUI.Controller;
-using GlobalDentalUI.Model;
+﻿using GlobalDentalClasses.Controller;
+using GlobalDentalClasses.Model;
 using System;
 using System.Windows.Forms;
 

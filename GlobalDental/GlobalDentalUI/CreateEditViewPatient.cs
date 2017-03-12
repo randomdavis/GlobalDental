@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using GlobalDentalUI.Controller;
-using GlobalDentalUI.Model;
+using GlobalDentalClasses.Controller;
+using GlobalDentalClasses.Model;
 
 namespace GlobalDentalUI
 {

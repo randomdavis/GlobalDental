@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using GlobalDentalUI.Controller;
+using GlobalDentalClasses.Controller;
+using GlobalDentalClasses.Model;
 
 namespace GlobalDentalUI
 {
@@ -165,7 +166,7 @@ namespace GlobalDentalUI
 
             if(SelectedPatient != null)
             {
-                foreach (Model.Treatment Treatment in SelectedPatient.TreatmentsList)
+                foreach (Treatment Treatment in SelectedPatient.TreatmentsList)
                 {
                     string id = Treatment.ID.ToString();
                     string date = Treatment.DateAndTime.ToLocalTime().ToString();
@@ -218,7 +219,7 @@ namespace GlobalDentalUI
             NotesTextBox.Text = SelectedPatient.TreatmentNotes;
         }
 
-        private Model.Patient SelectedPatient { get; set; }
+        private Patient SelectedPatient { get; set; }
         private string Title { get; set; }
 
         private void editPatientToolStripMenuItem_Click(object sender, EventArgs e)
@@ -242,7 +243,7 @@ namespace GlobalDentalUI
                 {
                     cb.Checked = false;
                     int toothNumber = Convert.ToInt32(cb.Text);
-                    CurrentDOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Extraction, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Existing, toothNumber);
+                    CurrentDOP.AddTreatment(SelectedPatient.PatientID, Treatment.TreatmentType.Extraction, new Treatment.TreatmentSurfaces(true), Treatment.TreatmentStatus.Existing, toothNumber);
                 }
 
                 i++;
@@ -260,7 +261,7 @@ namespace GlobalDentalUI
 
         private void FluorideButton_Click(object sender, EventArgs e)
         {
-            CurrentDOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Fluoride, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, 0);
+            CurrentDOP.AddTreatment(SelectedPatient.PatientID, Treatment.TreatmentType.Fluoride, new Treatment.TreatmentSurfaces(true), Treatment.TreatmentStatus.Planned, 0);
             foreach (Panel p in OdontogramLayoutPanel.Controls)
             {
                 CheckBox cb = (CheckBox)(p.Controls[p.Controls.Count - 1]);
@@ -274,7 +275,7 @@ namespace GlobalDentalUI
 
         private void ProphyButton_Click(object sender, EventArgs e)
         {
-            CurrentDOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Prophylaxis, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, 0);
+            CurrentDOP.AddTreatment(SelectedPatient.PatientID, Treatment.TreatmentType.Prophylaxis, new Treatment.TreatmentSurfaces(true), Treatment.TreatmentStatus.Planned, 0);
             foreach (Panel p in OdontogramLayoutPanel.Controls)
             {
                 CheckBox cb = (CheckBox)(p.Controls[p.Controls.Count - 1]);
@@ -295,7 +296,7 @@ namespace GlobalDentalUI
                 if (cb.Checked == true)
                 {
                     int toothNumber = Convert.ToInt32(cb.Text);
-                    CurrentDOP.AddTreatment(SelectedPatient.PatientID, Model.Treatment.TreatmentType.Extraction, new Model.Treatment.TreatmentSurfaces(true), Model.Treatment.TreatmentStatus.Planned, toothNumber);
+                    CurrentDOP.AddTreatment(SelectedPatient.PatientID, Treatment.TreatmentType.Extraction, new Treatment.TreatmentSurfaces(true), Treatment.TreatmentStatus.Planned, toothNumber);
                     cb.Checked = false;
                 }
             }
@@ -304,10 +305,10 @@ namespace GlobalDentalUI
 
         private void AmalgamButton_Click(object sender, EventArgs e)
         {
-            TreatmentShortcutWithSurface(Model.Treatment.TreatmentType.Amalgam);
+            TreatmentShortcutWithSurface(Treatment.TreatmentType.Amalgam);
         }
 
-        private void TreatmentShortcutWithSurface(Model.Treatment.TreatmentType Type)
+        private void TreatmentShortcutWithSurface(Treatment.TreatmentType Type)
         {
             selectedSurfaces = null;
             SurfaceSelection ss = new SurfaceSelection(this);
@@ -322,7 +323,7 @@ namespace GlobalDentalUI
                     if (cb.Checked == true)
                     {
                         int toothNumber = Convert.ToInt32(cb.Text);
-                        CurrentDOP.AddTreatment(SelectedPatient.PatientID, Type, selectedSurfaces, Model.Treatment.TreatmentStatus.Planned, toothNumber);
+                        CurrentDOP.AddTreatment(SelectedPatient.PatientID, Type, selectedSurfaces, Treatment.TreatmentStatus.Planned, toothNumber);
                         cb.Checked = false;
                     }
                 }
@@ -334,16 +335,16 @@ namespace GlobalDentalUI
             }
         }
 
-        public Model.Treatment.TreatmentSurfaces selectedSurfaces { get; set; }
+        public Treatment.TreatmentSurfaces selectedSurfaces { get; set; }
 
         private void CompositeButton_Click(object sender, EventArgs e)
         {
-            TreatmentShortcutWithSurface(Model.Treatment.TreatmentType.Composite);
+            TreatmentShortcutWithSurface(Treatment.TreatmentType.Composite);
         }
 
         private void SealantsButton_Click(object sender, EventArgs e)
         {
-            TreatmentShortcutWithSurface(Model.Treatment.TreatmentType.Sealants);
+            TreatmentShortcutWithSurface(Treatment.TreatmentType.Sealants);
         }
 
         private void CompleteButton_Click(object sender, EventArgs e)

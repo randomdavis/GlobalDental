@@ -55,9 +55,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GlobalDentalUI\GlobalDentalUI.csproj">
-      <Project>{beb23c91-1caf-4c18-8509-1dfbf24a1e0a}</Project>
-      <Name>GlobalDentalUI</Name>
+    <ProjectReference Include="..\GlobalDentalClasses\GlobalDentalClasses.csproj">
+      <Project>{17b638be-9b80-462f-8c21-842517d5de1a}</Project>
+      <Name>GlobalDentalClasses</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
