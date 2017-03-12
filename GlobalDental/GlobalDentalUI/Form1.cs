@@ -83,13 +83,6 @@ namespace GlobalDentalUI
             return newPanel;
         }
 
-        
-
-        public void Update_Odontogram()
-        {
-            Create_Odontogram();
-        }
-
         private void newPatientToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var CreatePatientDialog = new CreateEditViewPatient(DOP, this);
@@ -191,7 +184,7 @@ namespace GlobalDentalUI
                     TreatmentPlanDataTable.Rows.Add(id, date, toothNumber, surfaces, code, type, status);
                 }
             }
-            Update_Odontogram();
+            Create_Odontogram();
         }
 
         public void DeselectPatient()
@@ -215,7 +208,6 @@ namespace GlobalDentalUI
             editPatientToolStripMenuItem.Enabled = true;
             ProgressNotesView.Enabled = true;
             ShortcutButtonTable.Enabled = true;
-            Create_Odontogram();
             UpdateTreatmentPlanList();
             NotesTextBox.Text = SelectedPatient.TreatmentNotes;
         }

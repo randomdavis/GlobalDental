@@ -147,6 +147,7 @@
             this.PatientSearchResults.Size = new System.Drawing.Size(484, 377);
             this.PatientSearchResults.TabIndex = 0;
             this.PatientSearchResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientSearchResults_CellClick);
+            this.PatientSearchResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientSearchResults_CellDoubleClick);
             this.PatientSearchResults.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientSearchResults_CellLeave);
             this.PatientSearchResults.CellStateChanged += new System.Windows.Forms.DataGridViewCellStateChangedEventHandler(this.PatientSearchResults_CellStateChanged);
             this.PatientSearchResults.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.PatientSearchResults_RowStateChanged);

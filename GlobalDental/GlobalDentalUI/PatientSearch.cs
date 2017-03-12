@@ -195,5 +195,14 @@ namespace GlobalDentalUI
         {
             MainForm.Enabled = true;
         }
+
+        private void PatientSearchResults_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (SelectedPatientID != null)
+            {
+                MainForm.SetSelectedPatient((int)SelectedPatientID);
+                Close();
+            }
+        }
     }
 }
