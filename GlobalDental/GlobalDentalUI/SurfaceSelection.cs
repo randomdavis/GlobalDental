@@ -17,6 +17,7 @@ namespace GlobalDentalUI
             InitializeComponent();
 
             this.MainForm = MainForm;
+            this.MainForm.Enabled = false;
         }
 
         private void OKButton_Click(object sender, EventArgs e)
@@ -30,6 +31,7 @@ namespace GlobalDentalUI
             else
             {
                 MainForm.selectedSurfaces = surfaces;
+                MainForm.Enabled = true;
                 Close();
             }
         }

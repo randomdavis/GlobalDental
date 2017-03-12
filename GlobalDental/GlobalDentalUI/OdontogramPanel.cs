@@ -51,6 +51,7 @@ namespace GlobalDentalUI
             LingualColor  = Brushes.White;
             MesialColor   = Brushes.White;
             OcclusalColor = Brushes.White;
+            PenColor      = Pens.Black;
 
             foreach (Treatment t in SelectedPatient.TreatmentsList)
             {
@@ -69,6 +70,7 @@ namespace GlobalDentalUI
                     LingualColor  = brush;
                     MesialColor   = brush;
                     OcclusalColor = brush;
+                    PenColor      = Pens.LightGray;
                 }
                 else if (t.Type == Treatment.TreatmentType.Extraction || t.Type == Treatment.TreatmentType.Amalgam || t.Type == Treatment.TreatmentType.Composite || t.Type == Treatment.TreatmentType.Sealants)
                 {
@@ -109,6 +111,7 @@ namespace GlobalDentalUI
         private Brush LingualColor { get; set; }
         private Brush MesialColor { get; set; }
         private Brush OcclusalColor { get; set; }
+        private Pen PenColor { get; set; }
 
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -181,10 +184,10 @@ namespace GlobalDentalUI
                 g.FillPolygon(MesialColor, mesial);
                 g.FillPolygon(OcclusalColor, occlusal);
 
-                g.DrawPolygon(Pens.Black, topChunk);
-                g.DrawPolygon(Pens.Black, leftChunk);
-                g.DrawPolygon(Pens.Black, bottomChunk);
-                g.DrawPolygon(Pens.Black, rightChunk);
+                g.DrawPolygon(PenColor, topChunk);
+                g.DrawPolygon(PenColor, leftChunk);
+                g.DrawPolygon(PenColor, bottomChunk);
+                g.DrawPolygon(PenColor, rightChunk);
             }
         }
 

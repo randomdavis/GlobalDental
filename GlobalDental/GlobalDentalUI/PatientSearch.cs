@@ -18,6 +18,7 @@ namespace GlobalDentalUI
 
             this.DOP = DOP;
             this.MainForm = MainForm;
+            this.MainForm.Enabled = false;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -84,6 +85,7 @@ namespace GlobalDentalUI
             {
                 MainForm.SetSelectedPatient((int)SelectedPatientID);
                 Close();
+                MainForm.Enabled = true;
             }
             else
             {
@@ -106,7 +108,7 @@ namespace GlobalDentalUI
             PatientSearchResults.Rows.Clear();
             foreach (var Patient in PatientList)
             {
-                PatientSearchResults.Rows.Add(Patient.FirstName, Patient.LastName, Patient.Birthdate.ToLocalTime().ToShortDateString(), Patient.PatientID.ToString());
+                PatientSearchResults.Rows.Add(Patient.LastName, Patient.FirstName, Patient.Birthdate.ToLocalTime().ToShortDateString(), Patient.PatientID.ToString());
             }
 
             foreach (DataGridViewRow Row in PatientSearchResults.Rows)
@@ -187,6 +189,11 @@ namespace GlobalDentalUI
             {
                 SelectPatientAtRow(e.Row);
             }
+        }
+
+        private void PatientSearch_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainForm.Enabled = true;
         }
     }
 }

@@ -32,7 +32,7 @@ namespace GlobalDentalUI.Model
         public string Country { get; set; }
         public Gender PatientGender { get; set; }
         public string TreatmentNotes { get; set; }
-        public DateTime CreationDate { get; private set; }
+        public DateTime CreationDate { get; set; }
         public List<Treatment> TreatmentsList { get; }
     }
 }

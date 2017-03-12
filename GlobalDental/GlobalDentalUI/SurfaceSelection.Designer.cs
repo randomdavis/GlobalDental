@@ -57,17 +57,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(172, 149);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(196, 166);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // DistalCheckBox
             // 
             this.DistalCheckBox.AutoSize = true;
             this.DistalCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DistalCheckBox.Location = new System.Drawing.Point(0, 98);
-            this.DistalCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.DistalCheckBox.Location = new System.Drawing.Point(10, 110);
+            this.DistalCheckBox.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.DistalCheckBox.Name = "DistalCheckBox";
-            this.DistalCheckBox.Size = new System.Drawing.Size(86, 51);
+            this.DistalCheckBox.Size = new System.Drawing.Size(88, 56);
             this.DistalCheckBox.TabIndex = 5;
             this.DistalCheckBox.Text = "Distal";
             this.DistalCheckBox.UseVisualStyleBackColor = true;
@@ -76,10 +76,10 @@
             // 
             this.BuccalCheckBox.AutoSize = true;
             this.BuccalCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BuccalCheckBox.Location = new System.Drawing.Point(86, 49);
+            this.BuccalCheckBox.Location = new System.Drawing.Point(98, 55);
             this.BuccalCheckBox.Margin = new System.Windows.Forms.Padding(0);
             this.BuccalCheckBox.Name = "BuccalCheckBox";
-            this.BuccalCheckBox.Size = new System.Drawing.Size(86, 49);
+            this.BuccalCheckBox.Size = new System.Drawing.Size(98, 55);
             this.BuccalCheckBox.TabIndex = 4;
             this.BuccalCheckBox.Text = "Buccal";
             this.BuccalCheckBox.UseVisualStyleBackColor = true;
@@ -88,10 +88,10 @@
             // 
             this.OcclusalCheckBox.AutoSize = true;
             this.OcclusalCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OcclusalCheckBox.Location = new System.Drawing.Point(0, 49);
-            this.OcclusalCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.OcclusalCheckBox.Location = new System.Drawing.Point(10, 55);
+            this.OcclusalCheckBox.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.OcclusalCheckBox.Name = "OcclusalCheckBox";
-            this.OcclusalCheckBox.Size = new System.Drawing.Size(86, 49);
+            this.OcclusalCheckBox.Size = new System.Drawing.Size(88, 55);
             this.OcclusalCheckBox.TabIndex = 3;
             this.OcclusalCheckBox.Text = "Occlusal";
             this.OcclusalCheckBox.UseVisualStyleBackColor = true;
@@ -100,10 +100,10 @@
             // 
             this.LingualCheckBox.AutoSize = true;
             this.LingualCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LingualCheckBox.Location = new System.Drawing.Point(86, 0);
+            this.LingualCheckBox.Location = new System.Drawing.Point(98, 0);
             this.LingualCheckBox.Margin = new System.Windows.Forms.Padding(0);
             this.LingualCheckBox.Name = "LingualCheckBox";
-            this.LingualCheckBox.Size = new System.Drawing.Size(86, 49);
+            this.LingualCheckBox.Size = new System.Drawing.Size(98, 55);
             this.LingualCheckBox.TabIndex = 2;
             this.LingualCheckBox.Text = "Lingual";
             this.LingualCheckBox.UseVisualStyleBackColor = true;
@@ -111,9 +111,9 @@
             // OKButton
             // 
             this.OKButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OKButton.Location = new System.Drawing.Point(89, 101);
+            this.OKButton.Location = new System.Drawing.Point(101, 113);
             this.OKButton.Name = "OKButton";
-            this.OKButton.Size = new System.Drawing.Size(80, 45);
+            this.OKButton.Size = new System.Drawing.Size(92, 50);
             this.OKButton.TabIndex = 0;
             this.OKButton.Text = "Select";
             this.OKButton.UseVisualStyleBackColor = true;
@@ -123,10 +123,10 @@
             // 
             this.MesialCheckBox.AutoSize = true;
             this.MesialCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MesialCheckBox.Location = new System.Drawing.Point(0, 0);
-            this.MesialCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.MesialCheckBox.Location = new System.Drawing.Point(10, 0);
+            this.MesialCheckBox.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.MesialCheckBox.Name = "MesialCheckBox";
-            this.MesialCheckBox.Size = new System.Drawing.Size(86, 49);
+            this.MesialCheckBox.Size = new System.Drawing.Size(88, 55);
             this.MesialCheckBox.TabIndex = 1;
             this.MesialCheckBox.Text = "Mesial";
             this.MesialCheckBox.UseVisualStyleBackColor = true;
@@ -136,7 +136,7 @@
             this.AcceptButton = this.OKButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(172, 149);
+            this.ClientSize = new System.Drawing.Size(196, 166);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

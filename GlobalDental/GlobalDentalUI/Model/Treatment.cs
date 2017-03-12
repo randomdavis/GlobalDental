@@ -184,7 +184,7 @@ namespace GlobalDentalUI.Model
             Status = StatusToSet;
         }
 
-        public DateTime DateAndTime { get; private set; }
+        public DateTime DateAndTime { get; set; }
         public TreatmentType Type { get; private set; }
         public TreatmentSurfaces Surfaces { get; set; }
         public TreatmentStatus Status { get; set; }
