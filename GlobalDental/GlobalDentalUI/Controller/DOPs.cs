@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace GlobalDentalClasses.Controller
+namespace GlobalDentalUI.Controller
 {
     public class DOPs
     {

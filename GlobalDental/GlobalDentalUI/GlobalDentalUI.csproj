@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\DentalOutreachProgram.cs" />
+    <Compile Include="Controller\DOPs.cs" />
+    <Compile Include="Controller\SessionInfo.cs" />
     <Compile Include="CreateEditViewPatient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +89,8 @@
     <Compile Include="LogInForm.Designer.cs">
       <DependentUpon>LogInForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\Treatment.cs" />
     <Compile Include="OdontogramPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,12 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GlobalDentalClasses\GlobalDentalClasses.csproj">
-      <Project>{17b638be-9b80-462f-8c21-842517d5de1a}</Project>
-      <Name>GlobalDentalClasses</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

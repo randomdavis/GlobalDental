@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GlobalDentalClasses.Model
+namespace GlobalDentalUI.Model
 {
     public class Patient
     {

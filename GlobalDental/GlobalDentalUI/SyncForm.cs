@@ -1,4 +1,4 @@
-﻿using GlobalDentalClasses.Controller;
+﻿using GlobalDentalUI.Controller;
 using System;
 using System.Windows.Forms;
 

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using GlobalDentalClasses.Model;
+using GlobalDentalUI.Model;
 
-namespace GlobalDentalClasses.Controller
+namespace GlobalDentalUI.Controller
 {
     public class DentalOutreachProgram
     {

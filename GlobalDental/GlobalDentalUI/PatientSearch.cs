@@ -6,7 +6,7 @@ namespace GlobalDentalUI
 {
     public partial class PatientSearch : Form
     {
-        public PatientSearch(GlobalDentalClasses.Controller.DentalOutreachProgram DOP, MainWindow MainForm)
+        public PatientSearch(GlobalDentalUI.Controller.DentalOutreachProgram DOP, MainWindow MainForm)
         {
             InitializeComponent();
 
@@ -24,7 +24,7 @@ namespace GlobalDentalUI
         {
             if (SearchTextBox.Text.Length > 0)
             {
-                PatientList = new List<GlobalDentalClasses.Model.Patient>();
+                PatientList = new List<GlobalDentalUI.Model.Patient>();
 
                 var searchText = SearchTextBox.Text;
 
@@ -71,7 +71,7 @@ namespace GlobalDentalUI
 
         }
 
-        private GlobalDentalClasses.Controller.DentalOutreachProgram DOP { get; set; }
+        private GlobalDentalUI.Controller.DentalOutreachProgram DOP { get; set; }
 
         private void OpenButton_Click(object sender, EventArgs e)
         {
@@ -127,7 +127,7 @@ namespace GlobalDentalUI
             Populate_List();
         }
 
-        private List<GlobalDentalClasses.Model.Patient> PatientList { get; set; }
+        private List<GlobalDentalUI.Model.Patient> PatientList { get; set; }
 
         private void SearchTypeDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {

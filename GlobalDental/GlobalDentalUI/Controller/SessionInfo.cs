@@ -5,7 +5,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Text;
 
-namespace GlobalDentalClasses.Controller
+namespace GlobalDentalUI.Controller
 {
     public class SessionInfo
     {

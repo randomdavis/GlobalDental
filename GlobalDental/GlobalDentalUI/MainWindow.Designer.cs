@@ -576,7 +576,7 @@
             // 
             // treatmentBindingSource
             // 
-            this.treatmentBindingSource.DataSource = typeof(GlobalDentalClasses.Model.Treatment);
+            this.treatmentBindingSource.DataSource = typeof(GlobalDentalUI.Model.Treatment);
             // 
             // MainWindow
             // 

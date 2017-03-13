@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalDentalUI", "GlobalDen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalDentalServer", "GlobalDentalServer\GlobalDentalServer.csproj", "{314CC913-328C-415C-8D99-C7DEA4B82F5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalDentalClasses", "GlobalDentalClasses\GlobalDentalClasses.csproj", "{17B638BE-9B80-462F-8C21-842517D5DE1A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{314CC913-328C-415C-8D99-C7DEA4B82F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{314CC913-328C-415C-8D99-C7DEA4B82F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{314CC913-328C-415C-8D99-C7DEA4B82F5E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{17B638BE-9B80-462F-8C21-842517D5DE1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{17B638BE-9B80-462F-8C21-842517D5DE1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{17B638BE-9B80-462F-8C21-842517D5DE1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{17B638BE-9B80-462F-8C21-842517D5DE1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
