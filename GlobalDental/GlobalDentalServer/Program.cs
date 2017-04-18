@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using Newtonsoft.Json;
 using System.IO;
+using System.Linq;
 
 namespace GlobalDentalServer
 {
@@ -71,6 +72,10 @@ namespace GlobalDentalServer
                 Console.WriteLine("Recieved...");
                 var gottenString = encoder.GetString(truncatedReceiveBuffer);
                 var messageType = gottenString.Substring(0, 4);
+
+
+                var b = JsonConvert.SerializeObject(DOPCollections);
+
                 if (messageType == "SYNC")
                 {
                     var token = gottenString.Substring(5, 10);
@@ -120,6 +125,12 @@ namespace GlobalDentalServer
                         validSessions[token] = newClientID;
                         clientSocket.Send(encoder.GetBytes("GOOD:" + token));
                     }
+                }
+                else if (messageType == "DOWN")
+                {
+                    var data = JsonConvert.SerializeObject(DOPCollections);
+                    var encodedData = encoder.GetBytes(data);
+                    clientSocket.Send(encodedData);
                 }
 
                 /* clean up */

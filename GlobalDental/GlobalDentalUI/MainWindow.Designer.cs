@@ -71,6 +71,7 @@
             this.MainHorizontalSplitContainer = new System.Windows.Forms.SplitContainer();
             this.TopTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.OdontogramLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.downloadAllRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treatmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.MainMenu.SuspendLayout();
             this.ShortcutButtonTable.SuspendLayout();
@@ -106,6 +107,7 @@
             this.createDentalOutreachProgramToolStripMenuItem,
             this.selectDentalOutreachProgramToolStripMenuItem,
             this.editPatientToolStripMenuItem,
+            this.downloadAllRecordsToolStripMenuItem,
             this.registerButton,
             this.logInLogOutToolStripMenuItem,
             this.logOutToolStripMenuItem,
@@ -210,7 +212,7 @@
             this.ShortcutButtonTable.Controls.Add(this.CompositeButton, 1, 1);
             this.ShortcutButtonTable.Dock = System.Windows.Forms.DockStyle.Top;
             this.ShortcutButtonTable.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
-            this.ShortcutButtonTable.Location = new System.Drawing.Point(763, 4);
+            this.ShortcutButtonTable.Location = new System.Drawing.Point(760, 4);
             this.ShortcutButtonTable.MinimumSize = new System.Drawing.Size(0, 150);
             this.ShortcutButtonTable.Name = "ShortcutButtonTable";
             this.ShortcutButtonTable.RowCount = 4;
@@ -218,7 +220,7 @@
             this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.ShortcutButtonTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.ShortcutButtonTable.Size = new System.Drawing.Size(229, 150);
+            this.ShortcutButtonTable.Size = new System.Drawing.Size(232, 150);
             this.ShortcutButtonTable.TabIndex = 3;
             // 
             // ProphyButton
@@ -226,9 +228,9 @@
             this.ProphyButton.AutoSize = true;
             this.ProphyButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ProphyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProphyButton.Location = new System.Drawing.Point(117, 114);
+            this.ProphyButton.Location = new System.Drawing.Point(119, 114);
             this.ProphyButton.Name = "ProphyButton";
-            this.ProphyButton.Size = new System.Drawing.Size(109, 33);
+            this.ProphyButton.Size = new System.Drawing.Size(110, 33);
             this.ProphyButton.TabIndex = 7;
             this.ProphyButton.Text = "PRO (Prophylaxis)";
             this.ProphyButton.UseVisualStyleBackColor = true;
@@ -244,12 +246,12 @@
             this.ShortcutTinyTable2.Controls.Add(this.CompleteButton, 0, 0);
             this.ShortcutTinyTable2.Controls.Add(this.MissingButton, 1, 0);
             this.ShortcutTinyTable2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ShortcutTinyTable2.Location = new System.Drawing.Point(114, 0);
+            this.ShortcutTinyTable2.Location = new System.Drawing.Point(116, 0);
             this.ShortcutTinyTable2.Margin = new System.Windows.Forms.Padding(0);
             this.ShortcutTinyTable2.Name = "ShortcutTinyTable2";
             this.ShortcutTinyTable2.RowCount = 1;
             this.ShortcutTinyTable2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ShortcutTinyTable2.Size = new System.Drawing.Size(115, 37);
+            this.ShortcutTinyTable2.Size = new System.Drawing.Size(116, 37);
             this.ShortcutTinyTable2.TabIndex = 1;
             // 
             // CompleteButton
@@ -259,7 +261,7 @@
             this.CompleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CompleteButton.Location = new System.Drawing.Point(3, 3);
             this.CompleteButton.Name = "CompleteButton";
-            this.CompleteButton.Size = new System.Drawing.Size(51, 31);
+            this.CompleteButton.Size = new System.Drawing.Size(52, 31);
             this.CompleteButton.TabIndex = 2;
             this.CompleteButton.Text = "C";
             this.CompleteButton.UseVisualStyleBackColor = true;
@@ -270,7 +272,7 @@
             this.MissingButton.AutoSize = true;
             this.MissingButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.MissingButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MissingButton.Location = new System.Drawing.Point(60, 3);
+            this.MissingButton.Location = new System.Drawing.Point(61, 3);
             this.MissingButton.Name = "MissingButton";
             this.MissingButton.Size = new System.Drawing.Size(52, 31);
             this.MissingButton.TabIndex = 3;
@@ -285,7 +287,7 @@
             this.FluorideButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FluorideButton.Location = new System.Drawing.Point(3, 114);
             this.FluorideButton.Name = "FluorideButton";
-            this.FluorideButton.Size = new System.Drawing.Size(108, 33);
+            this.FluorideButton.Size = new System.Drawing.Size(110, 33);
             this.FluorideButton.TabIndex = 6;
             this.FluorideButton.Text = "FL (Fluoride)";
             this.FluorideButton.UseVisualStyleBackColor = true;
@@ -306,7 +308,7 @@
             this.ShortcutTinyTable1.Name = "ShortcutTinyTable1";
             this.ShortcutTinyTable1.RowCount = 1;
             this.ShortcutTinyTable1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.ShortcutTinyTable1.Size = new System.Drawing.Size(114, 37);
+            this.ShortcutTinyTable1.Size = new System.Drawing.Size(116, 37);
             this.ShortcutTinyTable1.TabIndex = 0;
             // 
             // TreatmentPlanButton
@@ -317,7 +319,7 @@
             this.TreatmentPlanButton.Enabled = false;
             this.TreatmentPlanButton.Location = new System.Drawing.Point(3, 3);
             this.TreatmentPlanButton.Name = "TreatmentPlanButton";
-            this.TreatmentPlanButton.Size = new System.Drawing.Size(51, 31);
+            this.TreatmentPlanButton.Size = new System.Drawing.Size(52, 31);
             this.TreatmentPlanButton.TabIndex = 0;
             this.TreatmentPlanButton.Text = "TX";
             this.TreatmentPlanButton.UseVisualStyleBackColor = true;
@@ -327,9 +329,9 @@
             this.ExistingOtherButton.AutoSize = true;
             this.ExistingOtherButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ExistingOtherButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ExistingOtherButton.Location = new System.Drawing.Point(60, 3);
+            this.ExistingOtherButton.Location = new System.Drawing.Point(61, 3);
             this.ExistingOtherButton.Name = "ExistingOtherButton";
-            this.ExistingOtherButton.Size = new System.Drawing.Size(51, 31);
+            this.ExistingOtherButton.Size = new System.Drawing.Size(52, 31);
             this.ExistingOtherButton.TabIndex = 1;
             this.ExistingOtherButton.Text = "EO";
             this.ExistingOtherButton.UseVisualStyleBackColor = true;
@@ -340,9 +342,9 @@
             this.SealantsButton.AutoSize = true;
             this.SealantsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.SealantsButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SealantsButton.Location = new System.Drawing.Point(117, 77);
+            this.SealantsButton.Location = new System.Drawing.Point(119, 77);
             this.SealantsButton.Name = "SealantsButton";
-            this.SealantsButton.Size = new System.Drawing.Size(109, 31);
+            this.SealantsButton.Size = new System.Drawing.Size(110, 31);
             this.SealantsButton.TabIndex = 5;
             this.SealantsButton.Text = "Sealants";
             this.SealantsButton.UseVisualStyleBackColor = true;
@@ -355,7 +357,7 @@
             this.AmalgamButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AmalgamButton.Location = new System.Drawing.Point(3, 40);
             this.AmalgamButton.Name = "AmalgamButton";
-            this.AmalgamButton.Size = new System.Drawing.Size(108, 31);
+            this.AmalgamButton.Size = new System.Drawing.Size(110, 31);
             this.AmalgamButton.TabIndex = 2;
             this.AmalgamButton.Text = "Amalgam";
             this.AmalgamButton.UseVisualStyleBackColor = true;
@@ -368,7 +370,7 @@
             this.ExtractionButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ExtractionButton.Location = new System.Drawing.Point(3, 77);
             this.ExtractionButton.Name = "ExtractionButton";
-            this.ExtractionButton.Size = new System.Drawing.Size(108, 31);
+            this.ExtractionButton.Size = new System.Drawing.Size(110, 31);
             this.ExtractionButton.TabIndex = 4;
             this.ExtractionButton.Text = "EXO (Extraction)";
             this.ExtractionButton.UseVisualStyleBackColor = true;
@@ -379,9 +381,9 @@
             this.CompositeButton.AutoSize = true;
             this.CompositeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CompositeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CompositeButton.Location = new System.Drawing.Point(117, 40);
+            this.CompositeButton.Location = new System.Drawing.Point(119, 40);
             this.CompositeButton.Name = "CompositeButton";
-            this.CompositeButton.Size = new System.Drawing.Size(109, 31);
+            this.CompositeButton.Size = new System.Drawing.Size(110, 31);
             this.CompositeButton.TabIndex = 3;
             this.CompositeButton.Text = "Composite";
             this.CompositeButton.UseVisualStyleBackColor = true;
@@ -535,7 +537,7 @@
             this.TopTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.TopTableLayout.ColumnCount = 2;
             this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 235F));
+            this.TopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 238F));
             this.TopTableLayout.Controls.Add(this.ShortcutButtonTable, 1, 0);
             this.TopTableLayout.Controls.Add(this.OdontogramLayoutPanel, 0, 0);
             this.TopTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -571,8 +573,15 @@
             this.OdontogramLayoutPanel.RowCount = 2;
             this.OdontogramLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.OdontogramLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.OdontogramLayoutPanel.Size = new System.Drawing.Size(752, 462);
+            this.OdontogramLayoutPanel.Size = new System.Drawing.Size(749, 462);
             this.OdontogramLayoutPanel.TabIndex = 4;
+            // 
+            // downloadAllRecordsToolStripMenuItem
+            // 
+            this.downloadAllRecordsToolStripMenuItem.Name = "downloadAllRecordsToolStripMenuItem";
+            this.downloadAllRecordsToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
+            this.downloadAllRecordsToolStripMenuItem.Text = "Download All Server Records...";
+            this.downloadAllRecordsToolStripMenuItem.Click += new System.EventHandler(this.downloadAllRecordsToolStripMenuItem_Click);
             // 
             // treatmentBindingSource
             // 
@@ -663,6 +672,7 @@
         private System.Windows.Forms.ToolStripMenuItem createDentalOutreachProgramToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selectDentalOutreachProgramToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem downloadAllRecordsToolStripMenuItem;
     }
 }
 

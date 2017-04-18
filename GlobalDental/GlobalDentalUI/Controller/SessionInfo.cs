@@ -71,6 +71,48 @@ namespace GlobalDentalUI.Controller
             }
         }
 
+        public Dictionary<string, List<DentalOutreachProgram>> DownloadAll()
+        {
+            try
+            {
+                var serverPort = 5678;
+                var serverIP = "127.0.0.1";
+                var messageLength = 1024 * 100;
+                TcpClient tcpclnt = new TcpClient();
+
+                tcpclnt.Connect(serverIP, serverPort);
+
+                Stream stm = tcpclnt.GetStream();
+                var encoder = new UTF8Encoding();
+                byte[] helloMessage = encoder.GetBytes("DOWN");
+
+                stm.Write(helloMessage, 0, helloMessage.Length);
+
+                byte[] payloadBytes = new byte[messageLength];
+                int k = stm.Read(payloadBytes, 0, messageLength);
+                tcpclnt.Close();
+
+                byte[] truncatedReceiveBuffer = new byte[k];
+                Array.Copy(payloadBytes, truncatedReceiveBuffer, k);
+
+                var payload = encoder.GetString(truncatedReceiveBuffer);
+                var b = JsonConvert.DeserializeObject<Dictionary<string, string>>(payload);
+                var c = new Dictionary<string, List<DentalOutreachProgram>>();
+                foreach (var key in b.Keys)
+                {
+                    var str = b[key];
+                    c[key] = JsonConvert.DeserializeObject<List<DentalOutreachProgram>>(str);
+                }
+                return c;
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine("Error..... " + e.StackTrace);
+                return null;
+            }
+        }
+
         public string Register(string clientID)
         {
             try

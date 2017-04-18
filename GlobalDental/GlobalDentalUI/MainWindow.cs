@@ -3,6 +3,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using GlobalDentalUI.Controller;
 using GlobalDentalUI.Model;
+using System.IO;
+using CsvHelper;
+using System.Collections.Generic;
 
 namespace GlobalDentalUI
 {
@@ -29,6 +32,71 @@ namespace GlobalDentalUI
 
             Create_Odontogram();
             OdontogramLayoutPanel.Enabled = false;
+            
+        }
+
+        class CSVItem
+        {
+            public DateTime DOPStartDate { get; set; }
+            public DateTime DOPEndDate { get; set; }
+            public string DOPRegion { get; set; }
+            public string DOPCountry { get; set; }
+            public string DOPName { get; set; }
+            public string PatientFirstName { get; set; }
+            public string PatientLastName { get; set; }
+            public DateTime PatientBirthdate { get; set; }
+            public string PatientCountry { get; set; }
+            public string PatientRegion { get; set; }
+            public Patient.Gender PatientGender { get; set; }
+            public string PatientTreatmentNotes { get; set; }
+            public DateTime TreatmentDate { get; set; }
+            public Treatment.TreatmentStatus TreatmentStatus { get; set; }
+            public Treatment.TreatmentSurfaces TreatmentSurfaces { get; set; }
+            public Treatment.TreatmentType TreatmentType { get; set; }
+            public int? TreatmentToothNumber { get; set; }
+        }
+
+        public void DOPListDictToCSV(Dictionary<string, List<DentalOutreachProgram>> dict, string filename)
+        {
+            List<CSVItem> items = new List<CSVItem>();
+            foreach (var key in dict.Keys)
+            {
+                foreach (var DOP in dict[key])
+                {
+                    foreach (var patient in DOP.Patients)
+                    {
+                        foreach (var treatment in patient.TreatmentsList)
+                        {
+                            var a = treatment.ToothNumber;
+                            items.Add(new CSVItem()
+                            {
+                                DOPCountry = DOP.Country,
+                                DOPStartDate = DOP.StartDate,
+                                DOPEndDate = DOP.EndDate,
+                                DOPRegion = DOP.Region,
+                                DOPName = DOP.Name,
+                                PatientFirstName = patient.FirstName,
+                                PatientBirthdate = patient.Birthdate,
+                                PatientCountry = patient.Country,
+                                PatientGender = patient.PatientGender,
+                                PatientLastName = patient.LastName,
+                                PatientRegion = patient.Region,
+                                PatientTreatmentNotes = patient.TreatmentNotes,
+                                TreatmentDate = treatment.DateAndTime,
+                                TreatmentStatus = treatment.Status,
+                                TreatmentSurfaces = treatment.Surfaces,
+                                TreatmentToothNumber = treatment.ToothNumber,
+                                TreatmentType = treatment.Type
+                            });
+                        }
+                    }
+                }
+            }
+            using (StreamWriter writer = File.CreateText(filename))
+            {
+                var csv = new CsvWriter(writer);
+                csv.WriteRecords(items);
+            }
         }
 
         public void setCurrentDOP(DentalOutreachProgram DOP)
@@ -447,6 +515,21 @@ namespace GlobalDentalUI
         {
             var DOPCreateDialog = new DOPCreateForm(this);
             DOPCreateDialog.Show();
+        }
+
+        private void downloadAllRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var a = Session.DownloadAll();
+            SaveFileDialog savefile = new SaveFileDialog();
+            // set a default file name
+            savefile.FileName = "records.csv";
+            // set filters - this can be done in properties as well
+            savefile.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            if (savefile.ShowDialog() == DialogResult.OK)
+            {
+                DOPListDictToCSV(a, savefile.FileName);
+            }
         }
     }
 }
